@@ -14,7 +14,8 @@ var gMeme = {
             // txt: 'I sometimes eat Falafel',
             txt: 'Add text here',
             size: 40,
-            color: 'black'
+            fillColor: 'black',
+            strokeColor: 'black'
         }
     ]
 }
@@ -34,10 +35,25 @@ function getImgById(id) {
 }
 
 function setLineTxt(txt) {
-
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
 }
 
 function setImg(id) {
     gMeme.selectedImgId = id
+}
+
+function setTextFill(color) {
+    gMeme.lines[gMeme.selectedLineIdx].fillColor = color
+}
+
+function setTextStroke(color) {
+    gMeme.lines[gMeme.selectedLineIdx].strokeColor = color
+}
+
+function increaseFont(){
+    gMeme.lines[gMeme.selectedLineIdx].size +=2
+}
+
+function decreaseFont(){
+    gMeme.lines[gMeme.selectedLineIdx].size -=2
 }

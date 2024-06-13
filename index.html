@@ -9,9 +9,27 @@
 </head>
 
 <body onload="onInit()">
-    <header>
-        <nav>
 
+    <header class="main-header main-layout full">
+        <nav class="main-nav-container">
+            <div class="logo ">Meme Generator</div>
+            <div class="main-nav">
+                <ul class="clean-list grid flow-column" onclick="toggleMenu()">
+                    <li><a href="#" onclick="renderGallery()">Gallery</a></li>
+                    <li><a href="#">Saved</a></li>
+                    <!-- <li><a href="#">Work</a></li>
+                    <li><a href="#">Contact</a></li> -->
+                </ul>
+            </div>
+
+            <!-- hamburger menu -->
+            <button class="btn-toggle-menu" onclick="toggleMenu()">
+                <div class="hamburger-lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
+            </button>
         </nav>
     </header>
 
@@ -29,10 +47,27 @@
                     <canvas width="450" height="450"> </canvas>
                 </div>
 
-                <div class="editor-toolbar">
-                    <label for="text"></label>
-                    <input type="text" id="line-inp" placeholder="Add Text Here" oninput="onLineChange()">
-                </div>
+                <section class="toolbar-container">
+
+                    <div class="editor-toolbar">
+                        <label for="text"></label>
+                        <input type="text" id="line-inp" placeholder="Add Text Here" oninput="onLineChange()">
+                    </div>
+
+                    <label for="text-fill"></label>
+                    <input required type="color" id="text-fill" name="text-fill" value="#000000" onchange="onSetTextFill()" />
+                    <!-- <img class="fill-icon" src="img/icons/fluent_color_fill_filled.png" alt=""> -->
+        
+                    <label for="text-shadow"></label>
+                    <input required type="color" id="text-shadow" name="text-shadow" value="#000000" onchange="onSetTextStroke()" />
+
+                    <button class="font-up" onclick="onIncreaseFont()">A+</button>
+                    <button class="font-down" onclick="onDecreaseFont()">A-</button>
+                     
+                    <div class="share">
+                        <a href="#" class="btn" onclick="onDownloadCanvas(this)" download="my-img.jpg">Download</a>
+                    </div>
+                </section>
 
             </section>
         </div>

@@ -5,23 +5,22 @@ var gImg
 
 
 function renderMeme() {
-    document.querySelector('.galery').style.display = 'none'; 
-    document.querySelector('.editor').style.display = 'block'; 
+    document.querySelector('.galery').style.display = 'none';
+    document.querySelector('.editor').style.display = 'block';
     const meme = getMeme()
     gElCanvas = document.querySelector('canvas');
     gCtx = gElCanvas.getContext('2d');
 
 
     func(getImgById(meme.selectedImgId))
-    
+
     // isDrawing = false;
     // renderImg(elImg);
     // gCtx.fillStyle = '#ede5ff'
     // // //* Clear the canvas,  fill it with grey background
-    setTimeout(()=>{drawText(meme.lines[meme.selectedLineIdx], gElCanvas.width/2, gElCanvas.height/2)}, 50)
+    setTimeout(() => { drawText(meme.lines[meme.selectedLineIdx], gElCanvas.width / 2, gElCanvas.height / 2) }, 50)
     // gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
 
-    
     // drawText('Add text here', gElCanvas.width/2, gElCanvas.height/2)
 }
 
@@ -40,10 +39,10 @@ function renderImg(bgImg) {
 
 function drawText(line, x, y) {
     gCtx.beginPath()
-  
+
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = line.color
-    gCtx.fillStyle = line.color
+    gCtx.strokeStyle = line.strokeColor
+    gCtx.fillStyle = line.fillColor
     gCtx.font = line.size + 'px Arial'
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
@@ -62,3 +61,36 @@ function onLineChange() {
     renderMeme();
 }
 
+function onSetTextFill() {
+    const elClrChoice = document.getElementById('text-fill')
+    var color = elClrChoice.value
+    setTextFill(color)
+    renderMeme();
+}
+
+function onSetTextStroke() {
+    const elClrChoice = document.getElementById('text-shadow')
+    var color = elClrChoice.value
+    setTextStroke(color)
+    renderMeme();
+}
+
+function onIncreaseFont() {
+    increaseFont()
+    renderMeme();
+}
+
+function onDecreaseFont() {
+    decreaseFont()
+    renderMeme();
+}
+
+function onDownloadCanvas(elLink) {
+    const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
+    elLink.href = imgContent
+}
+function resizeCanvas() {
+    const elContainer = document.querySelector('.canvas-container')
+    gElCanvas.width = elContainer.offsetWidth
+    gElCanvas.height = elContainer.offsetHeight
+}
