@@ -1,9 +1,11 @@
 'use strict'
 
-var gMeme
-var gImgId = 1
+var gImgNextId = 1
 
-var gImgs = [{ id: gImgId++, url: 'img/1.jpg', keywords: ['funny', 'Tramp'] }]
+var gImgs = [
+    { id: gImgNextId++, url: 'img/1.jpg', keywords: ['funny', 'Tramp'] },
+    { id: gImgNextId++, url: 'img/2.jpg', keywords: ['cute', 'puppy'] },
+]
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
@@ -23,11 +25,19 @@ function getMeme() {
     return gMeme;
 }
 
+function getImgs() {
+    return gImgs
+}
+
 function getImgById(id) {
     return gImgs.find(img => (img.id === id)).url
 }
 
 function setLineTxt(txt) {
-  
+
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
+}
+
+function setImg(id) {
+    gMeme.selectedImgId = id
 }

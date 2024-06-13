@@ -3,11 +3,10 @@ var gElCanvas;
 var gCtx;
 var gImg
 
-function onInit(){
-    renderMeme()
-}
 
 function renderMeme() {
+    document.querySelector('.galery').style.display = 'none'; 
+    document.querySelector('.editor').style.display = 'block'; 
     const meme = getMeme()
     gElCanvas = document.querySelector('canvas');
     gCtx = gElCanvas.getContext('2d');
@@ -19,7 +18,7 @@ function renderMeme() {
     // renderImg(elImg);
     // gCtx.fillStyle = '#ede5ff'
     // // //* Clear the canvas,  fill it with grey background
-    setTimeout(()=>{drawText(meme.lines[meme.selectedLineIdx], gElCanvas.width/2, gElCanvas.height/2)}, 100)
+    setTimeout(()=>{drawText(meme.lines[meme.selectedLineIdx], gElCanvas.width/2, gElCanvas.height/2)}, 50)
     // gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
 
     
