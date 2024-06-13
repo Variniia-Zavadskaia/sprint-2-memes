@@ -8,7 +8,7 @@
     <title>Meme Generator</title>
 </head>
 
-<body>
+<body onload="onInit()">
     <header>
         <nav>
 
@@ -16,15 +16,27 @@
     </header>
 
     <main>
-        <section class="gallery-conainer">
+        <!-- <section class="gallery-conainer">
 
-        </section>
+        </section> -->
 
         <section class="editor-container">
+           
+            <div class="canvas-container" id="canvas">
+                <canvas width="450" height="450"> </canvas>
+            </div>
+
+            <div class="editor-toolbar">
+
+                <label for="text"></label>
+                <input type="text" id="line-inp" placeholder="Add Text Here" oninput="onLineChange()">
+            </div>
 
         </section>
     </main>
 
+    <script src="js/memeService.js"></script>
+    <script src="js/memeController.js"></script>
     <script src="js/main.js"></script>
 </body>
 
