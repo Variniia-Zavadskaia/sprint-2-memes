@@ -10,20 +10,19 @@ var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines: [
-        {
-            // txt: 'I sometimes eat Falafel',
-            txt: 'Add text here',
-            size: 40,
-            fillColor: 'black',
-            strokeColor: 'black'
-        }
+        _createLine()
     ]
 }
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
-
 function getMeme() {
     return gMeme;
+}
+
+function addLine() {
+    const line = _createLine()
+    gMeme.lines.push(line)
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
 function getImgs() {
@@ -50,10 +49,20 @@ function setTextStroke(color) {
     gMeme.lines[gMeme.selectedLineIdx].strokeColor = color
 }
 
-function increaseFont(){
-    gMeme.lines[gMeme.selectedLineIdx].size +=2
+function increaseFont() {
+    gMeme.lines[gMeme.selectedLineIdx].size += 2
 }
 
-function decreaseFont(){
-    gMeme.lines[gMeme.selectedLineIdx].size -=2
+function decreaseFont() {
+    gMeme.lines[gMeme.selectedLineIdx].size -= 2
 }
+
+function _createLine(txt, size, fillColor, strokeColor) {
+    return {
+        txt: 'Add text here',
+        size: 40,
+        fillColor: 'black',
+        strokeColor: 'black'
+    }
+}
+

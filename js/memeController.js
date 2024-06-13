@@ -11,15 +11,11 @@ function renderMeme() {
     gElCanvas = document.querySelector('canvas');
     gCtx = gElCanvas.getContext('2d');
 
-
     func(getImgById(meme.selectedImgId))
 
-    // isDrawing = false;
-    // renderImg(elImg);
-    // gCtx.fillStyle = '#ede5ff'
     // // //* Clear the canvas,  fill it with grey background
-    setTimeout(() => { drawText(meme.lines[meme.selectedLineIdx], gElCanvas.width / 2, gElCanvas.height / 2) }, 50)
-    // gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
+    // setTimeout(() => { drawText(meme.lines[meme.selectedLineIdx], gElCanvas.width / 2, gElCanvas.height / 2) }, 2)
+    setTimeout(() => {meme.lines.forEach(line => drawText(line, gElCanvas.width / 2, gElCanvas.height / 2))}, 2)
 
     // drawText('Add text here', gElCanvas.width/2, gElCanvas.height/2)
 }
@@ -36,7 +32,6 @@ function renderImg(bgImg) {
     // drawText(meme.lines[meme.selectedLineIdx], gElCanvas.width/2, gElCanvas.height/2)
 }
 
-
 function drawText(line, x, y) {
     gCtx.beginPath()
 
@@ -48,6 +43,14 @@ function drawText(line, x, y) {
     gCtx.textBaseline = 'middle'
     gCtx.fillText(line.txt, x, y)
     gCtx.strokeText(line.txt, x, y)
+}
+
+function onAddLine(){
+    const elLineIn = document.getElementById('line-inp')
+   elLineIn.value = ''
+
+    addLine()
+    renderMeme()
 }
 
 function onLineChange() {
