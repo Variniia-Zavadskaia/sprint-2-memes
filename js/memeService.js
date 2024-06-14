@@ -5,8 +5,8 @@ var gImgNextId = 1
 var gImgs = [
     { id: gImgNextId++, url: 'img/1.jpg', keywords: ['funny', 'Tramp'] },
     { id: gImgNextId++, url: 'img/2.jpg', keywords: ['cute', 'puppy'] },
-    // { id: gImgNextId++, url: 'img/3.jpg', keywords: ['funny', 'Tramp'] },
-    // { id: gImgNextId++, url: 'img/4.jpg', keywords: ['cute', 'puppy'] },
+    { id: gImgNextId++, url: 'img/3.jpg', keywords: ['funny', 'Tramp'] },
+    { id: gImgNextId++, url: 'img/4.jpg', keywords: ['cute', 'puppy'] },
 ]
 var gMeme = {
     selectedImgId: 1,
@@ -72,7 +72,9 @@ function _createLine() {
         txt: '',
         size: 40,
         fillColor: 'black',
-        strokeColor: 'black'
+        strokeColor: 'black',
+        pos: null,
+        dimentions: null
     }
 }
 

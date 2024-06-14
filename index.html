@@ -50,43 +50,48 @@
 
                 <form class="toolbar-container">
 
-                   
-                        <label for="text"></label>
+                    <label class="line-inp">
                         <input type="text" id="line-inp" placeholder="Add Text Here" oninput="onLineChange()">
-                    
+                    </label>
 
-                    <!-- <div class="container">
-                        <input type="color" id="primary_color" class="field-radio">
-                        <span class="container" id="color_val"></span>
-                    </div> -->
-                    <label for="text-fill"></label>
-                    <input required type="color" class="icon-btn-fill" id="text-fill" name="text-fill" value="#000000"
-                        oninput="onSetTextFill()" />
-                    <!-- <img class="fill-icon" src="img/icons/fluent_color_fill_filled.png" alt=""> -->
+                    <div class="line-edit">
 
-                    <label for="text-shadow"></label>
-                    <input required type="button" class="icon-btn-stroke" id="text-shadow" name="text-srtoke" value="#000000"
-                        oninput="onSetTextStroke()" />
+                        <button class="button-with-img-icon new-line" id="text" type="button" onclick="onAddLine()">
+                            <img src="img/icons/add_to_queue_icon.png" alt="" height="20" width="20">
+                        </button>
 
-                    <button class="button-with-img-icon font-up" type="button" onclick="onIncreaseFont()">
-                        <img src="img/icons/fluent_font_increase_regular_icon.png" alt="" height="20" width="20">
-                    </button>
+                        <button class="button-with-img-icon switch-line" type="button" id="switch-line"
+                            onclick="onSwitchLine()">
+                            <img src="img/icons/arrow_bidirectional_up_icon.png" alt="" height="20" width="20">
+                        </button>
 
-                    <button class="button-with-img-icon font-down" type="button" onclick="onDecreaseFont()">
-                        <img src="img/icons/font_decrease_regular_icon.png" alt="" height="20" width="20">
-                    </button>
+                        <button class="button-with-img-icon delete-line" id="text" type="button"
+                            onclick="onDeleteLine()">
+                            <img src="img/icons/erase_delete_icon.png" alt="" height="20" width="20">
+                        </button>
+                    </div>
 
-                    <button class="button-with-img-icon new-line" id="text" type="button" onclick="onAddLine()">
-                        <img src="img/icons/add_to_queue_icon.png" alt="" height="20" width="20">
-                    </button>
+                    <div class="line-decor">
 
-                    <button class="button-with-img-icon delete-line" id="text" type="button" onclick="onDeleteLine()">
-                        <img src="img/icons/erase_delete_icon.png" alt="" height="20" width="20">
-                    </button>
+                        <button class="button-with-img-icon font-up" type="button" onclick="onIncreaseFont()">
+                            <img src="img/icons/fluent_font_increase_regular_icon.png" alt="" height="20" width="20">
+                        </button>
 
-                    <button class="button-with-img-icon switch-line" type="button" id="switch-line" onclick="onSwitchLine()">
-                        <img src="img/icons/arrow_bidirectional_up_icon.png" alt="" height="20" width="20">
-                    </button>
+                        <button class="button-with-img-icon font-down" type="button" onclick="onDecreaseFont()">
+                            <img src="img/icons/font_decrease_regular_icon.png" alt="" height="20" width="20">
+                        </button>
+
+                        <label for="text-fill">
+                            <input required type="color" class="icon-btn-fill" id="text-fill" name="text-fill"
+                                value="#000000" oninput="onSetTextFill()" />
+                        </label>
+
+                        <label for="text-shadow">
+                            <input required type="color" class="icon-btn-stroke" id="text-srtoke" name="text-srtoke"
+                                value="#000000" oninput="onSetTextStroke()" />
+                        </label>
+
+                    </div>
 
                     <div class="share">
                         <a href="#" class="btn " onclick="onDownloadCanvas(this)" download="my-img.jpg">Download</a>

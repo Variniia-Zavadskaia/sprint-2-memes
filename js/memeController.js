@@ -2,7 +2,19 @@
 var gElCanvas;
 var gCtx;
 var gImg
+var gBgImg = null
 
+
+function openEditor() {
+    document.querySelector('.galery').style.display = 'none';
+    document.querySelector('.editor').style.display = 'block';
+
+    const meme = getMeme();
+
+    gBgImg = new Image()
+    gBgImg.src = getImgById(meme.selectedImgId)
+    gBgImg.onload = () => renderMeme()
+}
 
 function renderMeme() {
     document.querySelector('.galery').style.display = 'none';
@@ -11,30 +23,27 @@ function renderMeme() {
     gElCanvas = document.querySelector('canvas');
     gCtx = gElCanvas.getContext('2d');
 
-    func(getImgById(meme.selectedImgId))
+    renderImg(gBgImg);
 
     var x = gElCanvas.width / 2
     var y = gElCanvas.height / 2
 
     // // //* Clear the canvas,  fill it with grey background
     // setTimeout(() => { drawText(meme.lines[meme.selectedLineIdx], gElCanvas.width / 2, gElCanvas.height / 2) }, 2)
-    setTimeout(() => {
-        meme.lines.forEach((line, idx) => {
+    meme.lines.forEach((line, idx) => {
             drawText(line, x, y, idx === meme.selectedLineIdx);
             x += 10;
             y += 10;
-        })
-
-    }, 2)
+    })
 
     // drawText('Add text here', gElCanvas.width/2, gElCanvas.height/2)
 }
 
-function func(url) {
-    let bgImg = new Image()
-    bgImg.src = url
-    bgImg.onload = () => renderImg(bgImg)
-}
+// function func(url) {
+//     let bgImg = new Image()
+//     bgImg.src = url
+//     bgImg.onload = () => renderImg(bgImg)
+// }
 
 function renderImg(bgImg) {
     // Draw the img on the canvas

@@ -23,5 +23,5 @@ function renderGallery(imgs = getImgs()) {
 function onImgSelect(elImg, imgId) {
 
     setImg(imgId);
-    renderMeme();
+    openEditor();
 }
