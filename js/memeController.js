@@ -13,9 +13,19 @@ function renderMeme() {
 
     func(getImgById(meme.selectedImgId))
 
+    var x = gElCanvas.width / 2
+    var y = gElCanvas.height / 2
+
     // // //* Clear the canvas,  fill it with grey background
     // setTimeout(() => { drawText(meme.lines[meme.selectedLineIdx], gElCanvas.width / 2, gElCanvas.height / 2) }, 2)
-    setTimeout(() => { meme.lines.forEach(line => drawText(line, gElCanvas.width / 2, gElCanvas.height / 2)) }, 2)
+    setTimeout(() => {
+        meme.lines.forEach((line, idx) => {
+            drawText(line, x, y, idx === meme.selectedLineIdx);
+            x += 10;
+            y += 10;
+        })
+
+    }, 2)
 
     // drawText('Add text here', gElCanvas.width/2, gElCanvas.height/2)
 }
@@ -80,17 +90,32 @@ function getEvPos(ev) {
     return pos
 }
 
-function drawText(line, x, y) {
-    gCtx.beginPath()
+function drawText(line, x, y, selected) {
+    var txt = line.txt
+    var height = line.size * 1.286;
+    var width;
 
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = line.strokeColor
-    gCtx.fillStyle = line.fillColor
-    gCtx.font = line.size + 'px Arial'
-    gCtx.textAlign = 'center'
-    gCtx.textBaseline = 'middle'
-    gCtx.fillText(line.txt, x, y)
-    gCtx.strokeText(line.txt, x, y)
+    if(line.txt === '') {
+        txt = 'Add Text Here'
+    }
+    
+    gCtx.beginPath();
+
+    gCtx.lineWidth = 2;
+    gCtx.strokeStyle = line.strokeColor;
+    gCtx.fillStyle = line.fillColor;
+    gCtx.font = line.size + 'px Arial';
+    gCtx.textAlign = 'center';
+    gCtx.textBaseline = 'middle';
+
+    width = gCtx.measureText(txt).width + 4;
+    // gCtx.textAlign = 'left';
+    // gCtx.textBaseline = 'top';
+    gCtx.fillText(txt, x, y);
+    gCtx.strokeText(txt, x, y);
+    if (selected) {
+        gCtx.strokeRect(x - width / 2 , y - height / 2 , width, height);
+    }
 }
 
 function onAddLine() {
@@ -102,7 +127,7 @@ function onAddLine() {
 }
 
 function onSwitchLine() {
-    // console.log('gggg');
+    console.log('gggg');
     // const elLineIn = document.getElementById('line-inp')
     // elLineIn.value = gMeme.selectedLineIdx
 

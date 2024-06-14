@@ -35,12 +35,12 @@ function addLine() {
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
-function switchLine(id) {
-    gMeme.lines[gMeme.selectedLineIdx] = id;
-    id++
-    if (id >= gMeme.length - 1) {
-        id = 0;
+function switchLine() {
+    gMeme.selectedLineIdx++;
+    if (gMeme.selectedLineIdx >= gMeme.lines.length) {
+        gMeme.selectedLineIdx = 0;
     }
+    console.log(gMeme.selectedLineIdx);
 }
 
 function setLineTxt(txt) {
@@ -67,9 +67,9 @@ function decreaseFont() {
     gMeme.lines[gMeme.selectedLineIdx].size -= 2
 }
 
-function _createLine(txt, size, fillColor, strokeColor) {
+function _createLine() {
     return {
-        txt: 'Add text here',
+        txt: '',
         size: 40,
         fillColor: 'black',
         strokeColor: 'black'
