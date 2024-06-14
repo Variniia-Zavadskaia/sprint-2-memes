@@ -3,25 +3,24 @@ var gElCanvas;
 var gCtx;
 var gImg
 var gBgImg = null
+const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 
 function openEditor() {
     document.querySelector('.galery').style.display = 'none';
     document.querySelector('.editor').style.display = 'block';
-
-    const meme = getMeme();
-
-    gBgImg = new Image()
-    gBgImg.src = getImgById(meme.selectedImgId)
-    gBgImg.onload = () => renderMeme()
-}
-
-function renderMeme() {
-    document.querySelector('.galery').style.display = 'none';
-    document.querySelector('.editor').style.display = 'block';
+    
     const meme = getMeme()
     gElCanvas = document.querySelector('canvas');
     gCtx = gElCanvas.getContext('2d');
+    gBgImg = new Image()
+    gBgImg.src = getImgById(meme.selectedImgId)
+    gBgImg.onload = () => renderMeme()
+    addListeners() 
+}
+
+function renderMeme() {
+    const meme = getMeme()
 
     renderImg(gBgImg);
 
@@ -31,24 +30,59 @@ function renderMeme() {
     // // //* Clear the canvas,  fill it with grey background
     // setTimeout(() => { drawText(meme.lines[meme.selectedLineIdx], gElCanvas.width / 2, gElCanvas.height / 2) }, 2)
     meme.lines.forEach((line, idx) => {
-            drawText(line, x, y, idx === meme.selectedLineIdx);
-            x += 10;
-            y += 10;
+        line.pos = { x, y };
+        line.dimentions = drawText(line, idx === meme.selectedLineIdx);
+        console.log(line);
+        x += 30;
+        y += 30;
     })
+
+    document.getElementById('line-inp').value = meme.lines[meme.selectedLineIdx].txt
 
     // drawText('Add text here', gElCanvas.width/2, gElCanvas.height/2)
 }
-
-// function func(url) {
-//     let bgImg = new Image()
-//     bgImg.src = url
-//     bgImg.onload = () => renderImg(bgImg)
-// }
 
 function renderImg(bgImg) {
     // Draw the img on the canvas
     gCtx.drawImage(bgImg, 0, 0, gElCanvas.width, gElCanvas.height)
     // drawText(meme.lines[meme.selectedLineIdx], gElCanvas.width/2, gElCanvas.height/2)
+}
+
+function onDown(ev) {
+    console.log('onDown')
+    // //* Get the ev pos from mouse or touch
+    const pos = getEvPos(ev)
+    // //* console.log('pos', pos)
+    const currIdx = findLineIdxCliked(pos)
+    console.log(pos,currIdx);
+    if (currIdx === -1) return
+    setLineIdx(currIdx)
+    renderMeme()
+
+    // setCircleDrag(true)
+    // //* Save the pos we start from
+    // gStartPos = pos
+    // document.body.style.cursor = 'grabbing'
+}
+
+function onMove(ev) {
+//     const { isDrag } = getCircle()
+//     if (!isDrag) return
+
+//     const pos = getEvPos(ev)
+//     //* Calc the delta, the diff we moved
+//     const dx = pos.x - gStartPos.x
+//     const dy = pos.y - gStartPos.y
+//     moveCircle(dx, dy)
+//     //* Save the last pos, we remember where we`ve been and move accordingly
+//     gStartPos = pos
+//     //* The canvas is render again after every move
+//     renderCanvas()
+}
+
+function onUp() {
+    // setCircleDrag(false)
+    // document.body.style.cursor = 'grab'
 }
 
 function addListeners() {
@@ -99,15 +133,17 @@ function getEvPos(ev) {
     return pos
 }
 
-function drawText(line, x, y, selected) {
+function drawText(line, selected) {
     var txt = line.txt
     var height = line.size * 1.286;
     var width;
+    var x = line.pos.x
+    var y = line.pos.y
 
-    if(line.txt === '') {
+    if (line.txt === '') {
         txt = 'Add Text Here'
     }
-    
+
     gCtx.beginPath();
 
     gCtx.lineWidth = 2;
@@ -123,8 +159,11 @@ function drawText(line, x, y, selected) {
     gCtx.fillText(txt, x, y);
     gCtx.strokeText(txt, x, y);
     if (selected) {
-        gCtx.strokeRect(x - width / 2 , y - height / 2 , width, height);
+        gCtx.strokeStyle = 'black'
+        gCtx.strokeRect(x - width / 2, y - height / 2, width, height);
     }
+
+    return { width, height }
 }
 
 function onAddLine() {
@@ -156,14 +195,14 @@ function onLineChange() {
 }
 
 function onSetTextFill() {
-    const elClrChoice = document.getElementById('text-fill')
+    const elClrChoice = document.getElementById('icon-btn-fill')
     var color = elClrChoice.value
     setTextFill(color)
     renderMeme();
 }
 
 function onSetTextStroke() {
-    const elClrChoice = document.getElementById('text-shadow')
+    const elClrChoice = document.getElementById('icon-btn-stroke')
     var color = elClrChoice.value
     setTextStroke(color)
     renderMeme();
