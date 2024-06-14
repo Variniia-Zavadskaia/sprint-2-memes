@@ -21,8 +21,8 @@ function _createLine() {
     return {
         txt: '',
         size: 40,
-        fillColor: 'white',
-        strokeColor: 'black',
+        fillColor: '#ffffff',
+        strokeColor: '#000000',
         pos: null,
         dimentions: null
     }

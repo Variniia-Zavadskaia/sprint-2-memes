@@ -38,6 +38,8 @@ function renderMeme() {
     })
 
     document.getElementById('line-inp').value = meme.lines[meme.selectedLineIdx].txt
+    document.getElementById('icon-btn-stroke').value = meme.lines[meme.selectedLineIdx].strokeColor
+    document.getElementById('icon-btn-fill').value = meme.lines[meme.selectedLineIdx].fillColor
 
     // drawText('Add text here', gElCanvas.width/2, gElCanvas.height/2)
 }
@@ -227,4 +229,8 @@ function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.offsetWidth
     gElCanvas.height = elContainer.offsetHeight
+}
+
+function onDeleteLine() {
+
 }
