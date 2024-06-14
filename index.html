@@ -48,12 +48,12 @@
                     <canvas width="450" height="450"> </canvas>
                 </div>
 
-                <section class="toolbar-container">
+                <form class="toolbar-container">
 
-                    <div class="editor-toolbar">
+                   
                         <label for="text"></label>
                         <input type="text" id="line-inp" placeholder="Add Text Here" oninput="onLineChange()">
-                    </div>
+                    
 
                     <!-- <div class="container">
                         <input type="color" id="primary_color" class="field-radio">
@@ -61,12 +61,12 @@
                     </div> -->
                     <label for="text-fill"></label>
                     <input required type="color" class="icon-btn-fill" id="text-fill" name="text-fill" value="#000000"
-                        onchange="onSetTextFill()" />
+                        oninput="onSetTextFill()" />
                     <!-- <img class="fill-icon" src="img/icons/fluent_color_fill_filled.png" alt=""> -->
 
                     <label for="text-shadow"></label>
                     <input required type="button" class="icon-btn-stroke" id="text-shadow" name="text-srtoke" value="#000000"
-                        onchange="onSetTextStroke()" />
+                        oninput="onSetTextStroke()" />
 
                     <button class="button-with-img-icon font-up" type="button" onclick="onIncreaseFont()">
                         <img src="img/icons/fluent_font_increase_regular_icon.png" alt="" height="20" width="20">
@@ -91,7 +91,7 @@
                     <div class="share">
                         <a href="#" class="btn " onclick="onDownloadCanvas(this)" download="my-img.jpg">Download</a>
                     </div>
-                </section>
+                </form>
 
             </section>
         </div>
