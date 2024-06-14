@@ -5,6 +5,8 @@ var gImgNextId = 1
 var gImgs = [
     { id: gImgNextId++, url: 'img/1.jpg', keywords: ['funny', 'Tramp'] },
     { id: gImgNextId++, url: 'img/2.jpg', keywords: ['cute', 'puppy'] },
+    // { id: gImgNextId++, url: 'img/3.jpg', keywords: ['funny', 'Tramp'] },
+    // { id: gImgNextId++, url: 'img/4.jpg', keywords: ['cute', 'puppy'] },
 ]
 var gMeme = {
     selectedImgId: 1,
@@ -19,18 +21,26 @@ function getMeme() {
     return gMeme;
 }
 
-function addLine() {
-    const line = _createLine()
-    gMeme.lines.push(line)
-    gMeme.selectedLineIdx = gMeme.lines.length - 1
-}
-
 function getImgs() {
     return gImgs
 }
 
 function getImgById(id) {
     return gImgs.find(img => (img.id === id)).url
+}
+
+function addLine() {
+    const line = _createLine()
+    gMeme.lines.push(line)
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
+}
+
+function switchLine(id) {
+    gMeme.lines[gMeme.selectedLineIdx] = id;
+    id++
+    if (id >= gMeme.length - 1) {
+        id = 0;
+    }
 }
 
 function setLineTxt(txt) {

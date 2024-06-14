@@ -4,23 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Meme Generator</title>
 </head>
 
 <body onload="onInit()">
 
-    <header class="main-header main-layout full">
-        <nav class="main-nav-container">
+    <header class="main-header">
+        <div class="nav-bar">
             <div class="logo ">Meme Generator</div>
-            <div class="main-nav">
-                <ul class="clean-list grid flow-column" onclick="toggleMenu()">
+            <nav class="main-nav-container">
+                <ul class="main-nav" onclick="toggleMenu()">
                     <li><a href="#" onclick="renderGallery()">Gallery</a></li>
                     <li><a href="#">Saved</a></li>
                     <!-- <li><a href="#">Work</a></li>
                     <li><a href="#">Contact</a></li> -->
                 </ul>
-            </div>
+            </nav>
 
             <!-- hamburger menu -->
             <button class="btn-toggle-menu" onclick="toggleMenu()">
@@ -30,8 +30,9 @@
                     <span class="line line3"></span>
                 </div>
             </button>
-        </nav>
+        </div>
     </header>
+
 
     <main>
         <div class="galery">
@@ -54,20 +55,37 @@
                         <input type="text" id="line-inp" placeholder="Add Text Here" oninput="onLineChange()">
                     </div>
 
+                    <!-- <div class="container">
+                        <input type="color" id="primary_color" class="field-radio">
+                        <span class="container" id="color_val"></span>
+                    </div> -->
                     <label for="text-fill"></label>
-                    <input required type="color" id="text-fill" name="text-fill" value="#000000" onchange="onSetTextFill()" />
+                    <input required type="color" class="icon-btn-fill" id="text-fill" name="text-fill" value="#000000"
+                        onchange="onSetTextFill()" />
                     <!-- <img class="fill-icon" src="img/icons/fluent_color_fill_filled.png" alt=""> -->
-        
+
                     <label for="text-shadow"></label>
-                    <input required type="color" id="text-shadow" name="text-shadow" value="#000000" onchange="onSetTextStroke()" />
+                    <input required type="button" class="icon-btn-stroke" id="text-shadow" name="text-srtoke" value="#000000"
+                        onchange="onSetTextStroke()" />
 
-                    <button class="font-up" onclick="onIncreaseFont()">A+</button>
-                    <button class="font-down" onclick="onDecreaseFont()">A-</button>
+                    <button class="button-with-img-icon font-up" type="button" onclick="onIncreaseFont()">
+                        <img src="img/icons/fluent_font_increase_regular_icon.png" alt="" height="20" width="20">
+                    </button>
 
-                    <button class="new-line" id="text" onclick="onAddLine()">+</button>
-                     
+                    <button class="button-with-img-icon font-down" type="button" onclick="onDecreaseFont()">
+                        <img src="img/icons/font_decrease_regular_icon.png" alt="" height="20" width="20">
+                    </button>
+
+                    <button class="button-with-img-icon new-line" id="text" type="button" onclick="onAddLine()">
+                        <img src="img/icons/add_to_queue_icon.png" alt="" height="20" width="20">
+                    </button>
+
+                    <button class="button-with-img-icon switch-line" type="button" id="switch-line" onclick="onSwitchLine()">
+                        <img src="img/icons/arrow_bidirectional_up_icon.png" alt="" height="20" width="20">
+                    </button>
+
                     <div class="share">
-                        <a href="#" class="btn" onclick="onDownloadCanvas(this)" download="my-img.jpg">Download</a>
+                        <a href="#" class="btn " onclick="onDownloadCanvas(this)" download="my-img.jpg">Download</a>
                     </div>
                 </section>
 
