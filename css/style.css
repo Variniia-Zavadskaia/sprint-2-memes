@@ -235,9 +235,9 @@ input {
     } */
 }
 
-/* input[type='color'] {
+input[type='color'] {
     display: none;
-} */
+}
 
 .input-group {
     display: flex;
