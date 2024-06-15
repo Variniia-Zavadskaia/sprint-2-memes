@@ -6,12 +6,24 @@
     gap: 40px;
 }
 
-.canvas-container {
+/* .canvas-container {
     width: 35rem;
     height: 35rem;
+  } */
+
+  .canvas-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    /* width: 60vw;
+    height: 80vh; */
   }
   
-  
+canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
 /* @media screen and (max-width: 500px) {
     .canvas-container {
         width: 25rem;
@@ -26,3 +38,9 @@
         /* margin-bottom: 80px; */
     }
 }
+
+@media screen and (max-width: 500px) {
+    .canvas-container {
+      width: 80vw;
+    }
+  }
