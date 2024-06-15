@@ -40,6 +40,8 @@ function renderMeme() {
     })
 
     document.getElementById('line-inp').value = meme.lines[meme.selectedLineIdx].txt
+    document.getElementById('fontFamily').value = meme.lines[meme.selectedLineIdx].font
+    document.getElementById('font-size').value = meme.lines[meme.selectedLineIdx].size
     document.getElementById('icon-btn-stroke').value = meme.lines[meme.selectedLineIdx].strokeColor
     document.getElementById('icon-btn-fill').value = meme.lines[meme.selectedLineIdx].fillColor
 
@@ -154,7 +156,7 @@ function drawText(line, selected) {
     gCtx.lineWidth = 2;
     gCtx.strokeStyle = line.strokeColor;
     gCtx.fillStyle = line.fillColor;
-    gCtx.font = line.size + 'px Impact';
+    gCtx.font = line.size + 'px ' + line.font;
     gCtx.textAlign = 'center';
     gCtx.textBaseline = 'middle';
 
@@ -191,6 +193,22 @@ function onSwitchLine() {
     // elLineIn.value = gMeme.selectedLineIdx
 
     switchLine()
+    renderMeme()
+}
+
+function onChangeFontFamily() {
+    const elFont = document.getElementById("fontFamily")
+    var font = elFont.value
+
+    setFontFamily(font)
+    renderMeme()
+}
+
+function onChangeFontSize() {
+    const elFont = document.getElementById("font-size")
+    var size = elFont.value
+
+    setFontSize(size)
     renderMeme()
 }
 

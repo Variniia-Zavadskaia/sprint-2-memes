@@ -1,7 +1,7 @@
 .toolbar-container {
     padding: 16px;
     /* width: 25rem; */
-    margin: 0 auto; 
+    margin: 0 auto;
     position: relative;
     width: 100%;
 }
@@ -13,23 +13,25 @@
 
 .line-edit,
 .line-decor,
+.tools,
 .share {
     padding: 10px 0;
 }
 
 .line-edit,
-.line-decor {
+.line-decor,
+.tools {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
 .button-with-img-icon,
-input {
+#line-inp,
+#font-size,
+#fontFamily {
     border: 0;
     outline: 0;
-    font-size: 16px;
-    border-radius: 320px;
     padding: 16px;
     background-color: var(--clrPrimary-2);
     text-shadow: 1px 1px 0 var(--clrPrimary-4);
@@ -38,10 +40,14 @@ input {
 .line-inp {
     display: block;
     margin-bottom: 24px;
-    width: 100%;
+    /* width: 100%; */
 }
 
-#line-inp {
+#line-inp,
+#font-size,
+#fontFamily {
+    font-size: 16px;
+    border-radius: 320px;
     margin-right: 8px;
     box-shadow: inset 2px 2px 5px var(--clrPrimary-1), inset -5px -5px 10px var(--clrPrimary-4);
     width: 100%;
@@ -54,6 +60,14 @@ input {
         box-shadow: inset 1px 1px 2px var(--clrPrimary-1),
             inset -1px -1px 2px var(--clrPrimary-4);
     }
+}
+
+#fontFamily {
+    width: 110px;
+}
+
+#font-size {
+    width: 80px;
 }
 
 .button-with-img-icon {

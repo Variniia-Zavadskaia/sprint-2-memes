@@ -14,7 +14,7 @@
         <nav class="main-nav-container grid space-between align-center flow-column">
             <div class="logo ">Meme Generator</div>
             <div class="main-nav">
-                <ul class="clean-list grid flow-column" >
+                <ul class="clean-list grid flow-column">
                     <li><a href="#" onclick="renderGallery()">Gallery</a></li>
                     <li><a href="#">Saved</a></li>
                     <!-- <li><a href="#">Work</a></li>
@@ -43,7 +43,7 @@
 
         <div class="editor">
             <section class="editor-container">
-            <!-- <section class="editor-container grid space-around align-center flow-column"></section> -->
+                <!-- <section class="editor-container grid space-around align-center flow-column"></section> -->
 
                 <div class="canvas-container">
                     <canvas class="canvas" width="400" height="400"> </canvas>
@@ -55,23 +55,35 @@
                         <input type="text" id="line-inp" placeholder="Add Text Here" oninput="onLineChange()">
                     </label>
 
-                    <div class="line-edit">
-
+                    <div class="tools">
                         <button class="button-with-img-icon new-line" id="text" onclick="onAddLine()">
                             <img src="img/icons/add_to_queue_icon.png" alt="" height="20" width="20">
                         </button>
 
-                        <button class="button-with-img-icon switch-line" id="switch-line"
-                            onclick="onSwitchLine()">
+                        <button class="button-with-img-icon switch-line" id="switch-line" onclick="onSwitchLine()">
                             <img src="img/icons/switch_vertical_icon.png" alt="" height="20" width="20">
                         </button>
 
-                        <button class="button-with-img-icon delete-line" id="text" type="button" onclick="onDeleteLine()">
+                        <button class="button-with-img-icon delete-line" id="text" type="button"
+                            onclick="onDeleteLine()">
                             <img src="img/icons/erase_delete_icon.png" alt="" height="20" width="20">
                         </button>
                     </div>
 
-                    <div class="line-decor">
+                    <div class="line-edit">
+
+                        <select id="fontFamily" value="" onchange="onChangeFontFamily()">
+                            <option id="impact" value="Impact">Impact</option>
+                            <option id="arial" value="Arial">Arial</option>
+                            <option id="georgia" value="Georgia">Georgia</option>
+                            <option id="tahoma" value="Tahoma">Tahoma</option>
+                            <option id="verdana" value="Verdana">Verdana</option>
+                            <option id="garamond" value="Garamond">Garamond</option>
+                        </select>
+
+                        <label class="font-size ">
+                            <input type="number" id="font-size" value="40" onchange="onChangeFontSize()">
+                        </label>
 
                         <button class="button-with-img-icon font-up" onclick="onIncreaseFont()">
                             <img src="img/icons/fluent_font_increase_regular_icon.png" alt="" height="20" width="20">
@@ -80,23 +92,40 @@
                         <button class="button-with-img-icon font-down" onclick="onDecreaseFont()">
                             <img src="img/icons/font_decrease_regular_icon.png" alt="" height="20" width="20">
                         </button>
+                    </div>
+
+                    <div class="line-decor">
 
                         <label for="icon-btn-fill" class="button-with-img-icon text-fill">
                             <img src="img/icons/color_palette_icon.png" alt="" height="20" width="20">
-                            <input type="color" id="icon-btn-fill" name="fill" value="#ffffff" oninput="onSetTextFill()" />
+                            <input type="color" id="icon-btn-fill" name="fill" value="#ffffff"
+                                oninput="onSetTextFill()" />
                         </label>
                         <!-- <input type="color" id="icon-btn-fill" name="fill" value="#ffffff" oninput="onSetTextFill()" /> -->
 
-                        <label  for="icon-btn-stroke" class="button-with-img-icon text-srtoke">
+                        <label for="icon-btn-stroke" class="button-with-img-icon text-srtoke">
                             <img src="img/icons/text_stroke_icon.png" alt="" height="20" width="20">
-                            <input type="color" id="icon-btn-stroke" name="stroke" value="#000000" oninput="onSetTextStroke()" />
+                            <input type="color" id="icon-btn-stroke" name="stroke" value="#000000"
+                                oninput="onSetTextStroke()" />
                         </label>
                         <!-- <input type="color" id="icon-btn-stroke" name="stroke" value="#000000" oninput="onSetTextStroke()" /> -->
 
+                        <button class="button-with-img-icon font-down" onclick="onDecreaseFont()">
+                            <img src="img/icons/9118194_text_align_left_icon.png" alt="" height="20" width="20">
+                        </button>
+
+                        <button class="button-with-img-icon font-down" onclick="onDecreaseFont()">
+                            <img src="img/icons/align_center_icon.png" alt="" height="20" width="20">
+                        </button>
+
+                        <button class="button-with-img-icon font-down" onclick="onDecreaseFont()">
+                            <img src="img/icons/align_right_icon.png" alt="" height="20" width="20">
+                        </button>
                     </div>
 
                     <div class="share">
-                        <a href="#" class="button-with-img-icon " onclick="onDownloadCanvas(this)" download="my-img.jpg">
+                        <a href="#" class="button-with-img-icon " onclick="onDownloadCanvas(this)"
+                            download="my-img.jpg">
                             <img src="img/icons/download_icon.png" alt="" height="20" width="20">
                         </a>
                     </div>

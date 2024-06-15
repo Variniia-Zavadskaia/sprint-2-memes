@@ -28,6 +28,7 @@ var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 function _createLine() {
     return {
         txt: '',
+        font: 'Impact',
         size: 40,
         fillColor: '#ffffff',
         strokeColor: '#000000',
@@ -60,7 +61,6 @@ function deleteLine() {
     if (gMeme.selectedLineIdx === gMeme.lines.length) {
         gMeme.selectedLineIdx = 0;
     }
-
 }
 
 function switchLine() {
@@ -71,12 +71,20 @@ function switchLine() {
     console.log(gMeme.selectedLineIdx);
 }
 
+function setFontFamily(font){
+    gMeme.lines[gMeme.selectedLineIdx].font = font
+}
+
+function setFontSize(size){
+    gMeme.lines[gMeme.selectedLineIdx].size = size
+}
+
 function findLineIdxCliked(clickedPos) {
     console.log(clickedPos);
     return gMeme.lines.findIndex(line => {
         console.log(line.pos, line.dimentions);
 
-        console.log(line.pos.x + line.dimentions.width / 2, line.pos.x - line.dimentions.width / 2, 
+        console.log(line.pos.x + line.dimentions.width / 2, line.pos.x - line.dimentions.width / 2,
             line.pos.y + line.dimentions.height / 2, line.pos.y - line.dimentions.height / 2);
         if ((clickedPos.x <= (line.pos.x + line.dimentions.width / 2)) && (clickedPos.x >= (line.pos.x - line.dimentions.width / 2)) &&
             (clickedPos.y <= (line.pos.y + line.dimentions.height / 2)) && (clickedPos.y >= (line.pos.y - line.dimentions.height / 2))) {
