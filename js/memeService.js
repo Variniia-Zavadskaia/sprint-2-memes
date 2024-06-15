@@ -54,6 +54,15 @@ function addLine() {
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
+function deleteLine() {
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+
+    if (gMeme.selectedLineIdx === gMeme.lines.length) {
+        gMeme.selectedLineIdx = 0;
+    }
+
+}
+
 function switchLine() {
     gMeme.selectedLineIdx++;
     if (gMeme.selectedLineIdx >= gMeme.lines.length) {
@@ -67,16 +76,17 @@ function findLineIdxCliked(clickedPos) {
     return gMeme.lines.findIndex(line => {
         console.log(line.pos, line.dimentions);
 
-        console.log(line.pos.x + line.dimentions.width / 2, line.pos.x - line.dimentions.width / 2, line.pos.y + line.dimentions.heigth / 2, line.pos.y - line.dimentions.heigth / 2);
+        console.log(line.pos.x + line.dimentions.width / 2, line.pos.x - line.dimentions.width / 2, 
+            line.pos.y + line.dimentions.height / 2, line.pos.y - line.dimentions.height / 2);
         if ((clickedPos.x <= (line.pos.x + line.dimentions.width / 2)) && (clickedPos.x >= (line.pos.x - line.dimentions.width / 2)) &&
-            (clickedPos.y <= (line.pos.y + line.dimentions.height / 2)) && (clickedPos.y >= (line.pos.y - line.dimentions.height / 2))){
-                return true;
-            } 
-        return false;  
+            (clickedPos.y <= (line.pos.y + line.dimentions.height / 2)) && (clickedPos.y >= (line.pos.y - line.dimentions.height / 2))) {
+            return true;
+        }
+        return false;
     })
 }
 
-function setLineIdx(idx){
+function setLineIdx(idx) {
     gMeme.selectedLineIdx = idx
 }
 

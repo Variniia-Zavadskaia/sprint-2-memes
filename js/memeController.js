@@ -9,14 +9,14 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 function openEditor() {
     document.querySelector('.galery').style.display = 'none';
     document.querySelector('.editor').style.display = 'block';
-    
+
     const meme = getMeme()
-    gElCanvas = document.querySelector('canvas');
+    gElCanvas = document.querySelector('.canvas');
     gCtx = gElCanvas.getContext('2d');
     gBgImg = new Image()
     gBgImg.src = getImgById(meme.selectedImgId)
     gBgImg.onload = () => renderMeme()
-    addListeners() 
+    addListeners()
 }
 
 function renderMeme() {
@@ -30,7 +30,9 @@ function renderMeme() {
     // // //* Clear the canvas,  fill it with grey background
     // setTimeout(() => { drawText(meme.lines[meme.selectedLineIdx], gElCanvas.width / 2, gElCanvas.height / 2) }, 2)
     meme.lines.forEach((line, idx) => {
-        line.pos = { x, y };
+        if (line.pos === null) {
+            line.pos = { x, y };
+        }
         line.dimentions = drawText(line, idx === meme.selectedLineIdx);
         console.log(line);
         x += 30;
@@ -56,7 +58,7 @@ function onDown(ev) {
     const pos = getEvPos(ev)
     // //* console.log('pos', pos)
     const currIdx = findLineIdxCliked(pos)
-    console.log(pos,currIdx);
+    console.log(pos, currIdx);
     if (currIdx === -1) return
     setLineIdx(currIdx)
     renderMeme()
@@ -68,18 +70,18 @@ function onDown(ev) {
 }
 
 function onMove(ev) {
-//     const { isDrag } = getCircle()
-//     if (!isDrag) return
+    //     const { isDrag } = getCircle()
+    //     if (!isDrag) return
 
-//     const pos = getEvPos(ev)
-//     //* Calc the delta, the diff we moved
-//     const dx = pos.x - gStartPos.x
-//     const dy = pos.y - gStartPos.y
-//     moveCircle(dx, dy)
-//     //* Save the last pos, we remember where we`ve been and move accordingly
-//     gStartPos = pos
-//     //* The canvas is render again after every move
-//     renderCanvas()
+    //     const pos = getEvPos(ev)
+    //     //* Calc the delta, the diff we moved
+    //     const dx = pos.x - gStartPos.x
+    //     const dy = pos.y - gStartPos.y
+    //     moveCircle(dx, dy)
+    //     //* Save the last pos, we remember where we`ve been and move accordingly
+    //     gStartPos = pos
+    //     //* The canvas is render again after every move
+    //     renderCanvas()
 }
 
 function onUp() {
@@ -92,12 +94,13 @@ function addListeners() {
     addTouchListeners()
     // * Listen for resize ev
     window.addEventListener('resize', () => {
+        console.log("dsds");
         resizeCanvas()
         //* Calc the center of the canvas
         const center = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
-    // * Create the circle in the center
+        // * Create the circle in the center
 
-    renderMeme()
+        renderMeme()
     })
 }
 
@@ -151,7 +154,7 @@ function drawText(line, selected) {
     gCtx.lineWidth = 2;
     gCtx.strokeStyle = line.strokeColor;
     gCtx.fillStyle = line.fillColor;
-    gCtx.font = line.size + 'px Arial';
+    gCtx.font = line.size + 'px Impact';
     gCtx.textAlign = 'center';
     gCtx.textBaseline = 'middle';
 
@@ -173,6 +176,12 @@ function onAddLine() {
     elLineIn.value = ''
 
     addLine()
+    renderMeme()
+}
+
+function onDeleteLine() {
+    console.log('ghghghghghg');
+    deleteLine()
     renderMeme()
 }
 
@@ -231,6 +240,4 @@ function resizeCanvas() {
     gElCanvas.height = elContainer.offsetHeight
 }
 
-function onDeleteLine() {
 
-}
