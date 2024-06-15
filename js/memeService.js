@@ -7,6 +7,14 @@ var gImgs = [
     { id: gImgNextId++, url: 'img/2.jpg', keywords: ['cute', 'puppy'] },
     { id: gImgNextId++, url: 'img/3.jpg', keywords: ['funny', 'Tramp'] },
     { id: gImgNextId++, url: 'img/4.jpg', keywords: ['cute', 'puppy'] },
+    { id: gImgNextId++, url: 'img/5.jpg', keywords: ['funny', 'Tramp'] },
+    { id: gImgNextId++, url: 'img/6.jpg', keywords: ['cute', 'puppy'] },
+    { id: gImgNextId++, url: 'img/7.jpg', keywords: ['funny', 'Tramp'] },
+    { id: gImgNextId++, url: 'img/8.jpg', keywords: ['cute', 'puppy'] },
+    { id: gImgNextId++, url: 'img/9.jpg', keywords: ['funny', 'Tramp'] },
+    { id: gImgNextId++, url: 'img/10.jpg', keywords: ['cute', 'puppy'] },
+    { id: gImgNextId++, url: 'img/11.jpg', keywords: ['funny', 'Tramp'] },
+    { id: gImgNextId++, url: 'img/12.jpg', keywords: ['cute', 'puppy'] },
 ]
 var gMeme = {
     selectedImgId: 1,

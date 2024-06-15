@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    background-color: var(--clrPrimary-2);
+    line-height: 1.25rem;
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    color: var(--clrPrimary-4);
+     text-decoration: none;    
+}
+
+body,
+/* header, */
+a,
+input,
+button {
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: -0.2px;
+    font-size: 16px;
+}
+
+.galery,
+.editor {
+    margin: auto;
+    margin-top: 20px;
+    max-width: 900px;
+}

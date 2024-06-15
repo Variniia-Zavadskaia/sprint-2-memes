@@ -1,6 +1,5 @@
 'use strict'
 
-
 function renderGallery(imgs = getImgs()) {
     document.querySelector('.galery').style.display = 'block';
     document.querySelector('.editor').style.display = 'none';

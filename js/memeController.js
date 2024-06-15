@@ -90,15 +90,15 @@ function onUp() {
 function addListeners() {
     addMouseListeners()
     addTouchListeners()
-    //* Listen for resize ev
-    // window.addEventListener('resize', () => {
-    //     // resizeCanvas()
-    //     //* Calc the center of the canvas
-    //     const center = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
-    //* Create the circle in the center
+    // * Listen for resize ev
+    window.addEventListener('resize', () => {
+        resizeCanvas()
+        //* Calc the center of the canvas
+        const center = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
+    // * Create the circle in the center
 
-    // renderCanvas()
-    // })
+    renderMeme()
+    })
 }
 
 function addMouseListeners() {

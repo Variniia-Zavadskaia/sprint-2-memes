@@ -1,0 +1,117 @@
+/* MOBILE ONLY */
+@media (max-width: 860px) {
+
+    .main-header {
+        padding: 20px 0;
+        min-height: 70px;
+    }
+
+    /* navbar change: */
+    .main-header .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: grid;
+        grid-template-rows: 0fr;
+        overflow: hidden;
+        transition: grid-template-rows 1s;
+        align-items: end;
+    }
+
+
+    .main-header .main-nav ul {
+        min-height: 0;
+        grid-auto-flow: row;
+        background-color: var(--clrPrimary2);
+    }
+
+    .main-header .main-nav li {
+        border-bottom: 1px solid #ccc;
+    }
+
+    body.menu-open .main-nav {
+        grid-template-rows: 1fr;
+    }
+}
+
+
+/* SMALL */
+@media (min-width: 640px) {
+    .main-layout {
+        grid-template-columns: minmax(20px, 1fr) minmax(auto, var(--s)) minmax(20px, 1fr);
+    }
+}
+
+/* MEDIUM */
+@media (min-width: 860px) {
+
+
+    html {
+        font-size: 14px;
+    }
+
+    .main-layout {
+        grid-template-columns: minmax(20px, 1fr) minmax(auto, var(--m)) minmax(20px, 1fr);
+    }
+
+    .editor-container {
+        grid-template-columns: 1fr 1fr;
+        /* gap: 40px; */
+        /* margin-bottom: 80px; */
+    }
+
+    /* .card>*:not(img) {
+        grid-column: 2;
+    } */
+
+    /* .card h2 {
+        text-transform: uppercase;
+        padding-right: 25px;
+    } */
+
+    /* .card p {
+        padding-right: 25px;
+    } */
+
+    /* .card .card-btn {
+        margin-top: auto;
+    } */
+
+    /* .card-info {
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    } */
+
+    .btn-toggle-menu {
+        display: none;
+    }
+
+    /* .main-header {
+        width: fit-content;
+    } */
+
+}
+
+/* LARGE */
+@media (min-width: 1060px) {
+    html {
+        font-size: 16px;
+    }
+
+    :root {
+        --headerHeight: 130px;
+    }
+
+    .main-layout {
+        grid-template-columns: minmax(20px, 1fr) minmax(auto, var(--l)) minmax(20px, 1fr);
+    }
+
+    /* .card h2 {
+        font-size: 1.75em;
+        margin-block-end: 2.0714285em;
+    } */
+
+}

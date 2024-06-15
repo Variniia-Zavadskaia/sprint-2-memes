@@ -1,0 +1,28 @@
+.editor-container {
+    display: grid;
+    grid-auto-flow: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40px;
+}
+
+.canvas-container {
+    width: 35rem;
+    height: 35rem;
+  }
+  
+  
+/* @media screen and (max-width: 500px) {
+    .canvas-container {
+        width: 25rem;
+    }
+} */
+
+@media (min-width: 860px) {
+    .editor-container  {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-flow: column;
+        /* gap: 40px; */
+        /* margin-bottom: 80px; */
+    }
+}

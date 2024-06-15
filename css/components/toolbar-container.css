@@ -1,0 +1,114 @@
+.toolbar-container {
+    padding: 16px;
+    width: 25rem;
+    margin: 0 auto;
+}
+
+.toolbar-container div {
+    color: var(--clrPrimary-1);
+    text-shadow: 1px 1px 1px var(--clrPrimary-4);
+}
+
+.line-edit,
+.line-decor,
+.share {
+    padding: 10px 0;
+}
+
+.line-edit,
+.line-decor {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.button-with-img-icon,
+input {
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    border-radius: 320px;
+    padding: 16px;
+    background-color: var(--clrPrimary-2);
+    text-shadow: 1px 1px 0 var(--clrPrimary-4);
+}
+
+.line-inp {
+    display: block;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+#line-inp {
+    margin-right: 8px;
+    box-shadow: inset 2px 2px 5px var(--clrPrimary-1), inset -5px -5px 10px var(--clrPrimary-4);
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+
+    &:focus {
+        box-shadow: inset 1px 1px 2px var(--clrPrimary-1),
+            inset -1px -1px 2px var(--clrPrimary-4);
+    }
+}
+
+.button-with-img-icon {
+    color: #61677c;
+    font-weight: bold;
+    box-shadow: -5px -5px 20px var(--clrPrimary-4), 5px 5px 20px var(--clrPrimary-1);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-weight: 600;
+
+    &:hover {
+        box-shadow: -2px -2px 5px var(--clrPrimary-4), 2px 2px 5px var(--clrPrimary-1);
+    }
+
+    &:active {
+        box-shadow: inset 1px 1px 2px var(--clrPrimary-1),
+            inset -1px -1px 2px var(--clrPrimary-4);
+    }
+
+    .img {
+        margin-right: 8px;
+    }
+
+    &.button-with-img-icon {
+        border-radius: 8px;
+        line-height: 0;
+        width: 48px;
+        height: 48px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 8px;
+        font-size: 19px;
+
+        .icon {
+            margin-right: 0;
+        }
+    }
+
+    /* &.red {
+        display: block;
+        width: 100%;
+        color: red;
+    } */
+}
+
+input[type='color'] {
+    display: none;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    label {
+        margin: 0;
+        flex: 1;
+    }
+}

@@ -1,0 +1,15 @@
+.gallery-conainer {
+    /* display: grid; */
+    /* grid-auto-flow: column; */
+    columns: 4 15rem;
+    /* justify-content: space-around; */
+    /* align-items: center; */
+    /* columns: 4; */
+}
+
+.gallery-conainer img {
+    width: 100%;
+    /* padding: 2em;
+    height: max-content; */
+    break-inside: avoid;  
+}
