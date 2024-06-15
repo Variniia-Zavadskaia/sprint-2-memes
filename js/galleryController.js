@@ -8,14 +8,14 @@ function renderGallery(imgs = getImgs()) {
 
     const strHTMLs = imgs.map(img => {
         return `<div class="img-card">
-                    <img src="${img.url}" onclick="onImgSelect(this, ${img.id})" />
+                    <img src="${img.url}" onclick="onImgSelect(${img.id})" />
                 </div>`
     })
 
     elGalleryContainer.innerHTML = strHTMLs.join('');
 }
 
-function onImgSelect(elImg, imgId) {
+function onImgSelect( imgId) {
 
     setImg(imgId);
     openEditor();
