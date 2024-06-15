@@ -113,6 +113,9 @@
     transition: 0.4s;
 }
 
+body.menu-open .btn-toggle-menu {
+    z-index: 2;
+}
 
 body.menu-open .btn-toggle-menu .hamburger-lines .line.line1 {
     rotate: -45deg;
