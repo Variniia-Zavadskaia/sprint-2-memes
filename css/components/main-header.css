@@ -1,19 +1,56 @@
-.main-header {
+/* .main-header {
     height: 100px;
     background: rgba(124, 161, 187, 0.261);
     box-shadow: inset 0px -6px 0px hsl(221, 26%, 43%);
+} */
+
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: rgba(124, 161, 187, 0.261);
+    box-shadow: inset 0px -6px 0 hsl(221, 26%, 43%);
 }
 
-.nav-bar {
+/* .nav-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+} */
+
+.main-header .main-nav li {
+    border-inline-start: 2px solid varhsl(221, 26%, 43%);
 }
 
-.main-nav-container {
+.main-header .main-nav li:last-of-type {
+    border-inline-end: 2px solid varhsl(221, 26%, 43%);
+}
+
+/* .main-nav-container {
     display: flex;
     justify-content: space-between;
-    /* align-items: center */
+    align-items: center
+} */
+
+.main-header .main-nav a {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 130px;
+    min-height: 130px;
+
+    transition: box-shadow 0.2s;
+    will-change: box-shadow;
+}
+
+.main-header .main-nav a:hover {
+    box-shadow: inset 0px -6px 0 var(--clrPrimary-1);
+}
+
+.main-header .main-nav a.active {
+    color: var(--clrPrimary-1);
+    box-shadow: inset 0px -6px 0 var(--clrPrimary-1);
 }
 
 .logo {
@@ -22,22 +59,22 @@
     letter-spacing: -1px;
 }
 
-.main-nav {
+/* .main-nav {
     margin: 0;
     padding: 0;
     list-style-type: none;
 
     display: flex;
 
-    /* justify-content: space-between; */
-}
+    justify-content: space-between;
+} */
 
-.main-nav li:hover {
-    /* box-shadow: inset 0px -6px 0px #58c93a; */
+/* .main-nav li:hover {
+    box-shadow: inset 0px -6px 0px #58c93a;
     color: rgb(141, 140, 141);
-}
+} */
 
-.main-nav a {
+/* .main-nav a {
     display: grid;
     font-weight: 400;
 
@@ -52,4 +89,41 @@
 
 .main-nav a:hover {
     color: rgb(141, 140, 141);
+} */
+
+.main-header .btn-toggle-menu {
+    background-color: inherit;
+    border: 0;
+    cursor: pointer;
+}
+
+.main-header .btn-toggle-menu .hamburger-lines {
+    height: 26px;
+    width: 32px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-header .btn-toggle-menu .hamburger-lines .line {
+    height: 4px;
+    width: 100%;
+    background-color: aliceblue;
+    transition: 0.4s;
+}
+
+
+body.menu-open .btn-toggle-menu .hamburger-lines .line.line1 {
+    rotate: -45deg;
+    transform-origin: top right;
+}
+
+body.menu-open .btn-toggle-menu .hamburger-lines .line.line2 {
+    scale: 0;
+}
+
+body.menu-open .btn-toggle-menu .hamburger-lines .line.line3 {
+    rotate: 45deg;
+    transform-origin: bottom right;
 }

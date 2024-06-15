@@ -23,7 +23,7 @@
     .main-header .main-nav ul {
         min-height: 0;
         grid-auto-flow: row;
-        background-color: var(--clrPrimary2);
+        background-color: rgba(124, 161, 187, 0.578);
     }
 
     .main-header .main-nav li {
