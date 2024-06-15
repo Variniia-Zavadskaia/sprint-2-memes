@@ -2,8 +2,8 @@
 
 function onInit() {
     console.log("dsdsd");
-    // renderGallery();
-    openEditor()
+    renderGallery();
+    // openEditor()
 }
 
 function toggleMenu() {

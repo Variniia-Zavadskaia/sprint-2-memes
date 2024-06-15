@@ -94,6 +94,11 @@ function findLineIdxCliked(clickedPos) {
     })
 }
 
+function moveLine(dx, dy) {
+    gMeme.lines[gMeme.selectedLineIdx].pos.x += dx
+    gMeme.lines[gMeme.selectedLineIdx].pos.y += dy
+}
+
 function setLineIdx(idx) {
     gMeme.selectedLineIdx = idx
 }

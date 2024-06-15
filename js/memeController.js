@@ -3,6 +3,8 @@ var gElCanvas;
 var gCtx;
 var gImg
 var gBgImg = null
+var gDrag = false
+var gStartPos
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 
@@ -65,30 +67,51 @@ function onDown(ev) {
     setLineIdx(currIdx)
     renderMeme()
 
-    // setCircleDrag(true)
-    // //* Save the pos we start from
-    // gStartPos = pos
-    // document.body.style.cursor = 'grabbing'
+    gDrag = true
+    //* Save the pos we start from
+    gStartPos = pos
+    document.body.style.cursor = 'grabbing'
 }
 
 function onMove(ev) {
-    //     const { isDrag } = getCircle()
-    //     if (!isDrag) return
+    if (!gDrag) return
 
-    //     const pos = getEvPos(ev)
-    //     //* Calc the delta, the diff we moved
-    //     const dx = pos.x - gStartPos.x
-    //     const dy = pos.y - gStartPos.y
-    //     moveCircle(dx, dy)
-    //     //* Save the last pos, we remember where we`ve been and move accordingly
-    //     gStartPos = pos
-    //     //* The canvas is render again after every move
-    //     renderCanvas()
+    const pos = getEvPos(ev)
+    //* Calc the delta, the diff we moved
+    const dx = pos.x - gStartPos.x
+    const dy = pos.y - gStartPos.y
+    moveLine(dx, dy)
+    //* Save the last pos, we remember where we`ve been and move accordingly
+    gStartPos = pos
+    //* The canvas is render again after every move
+    renderMeme()
 }
 
 function onUp() {
-    // setCircleDrag(false)
-    // document.body.style.cursor = 'grab'
+    gDrag = false
+    document.body.style.cursor = 'auto'
+}
+
+function onKeyDown(event) {
+console.log('fhfjfhfjfhfjf');
+console.log(event.code);
+    switch (event.code) {
+        case 'ArrowLeft':
+            moveLine(-3, 0);
+            break
+        case 'ArrowRight':
+            moveLine(3, 0);
+            break;
+        case 'ArrowUp':
+            moveLine(0, -3);
+            break;
+        case 'ArrowDown':
+            moveLine(0, 3);
+            break;
+
+        default: return null;
+    }
+    renderMeme()
 }
 
 function addListeners() {
