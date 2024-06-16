@@ -1,8 +1,8 @@
-.gallery-conainer {
+.img-gallery {
     columns: 4 15rem;
 }
 
-.gallery-conainer img {
+.img-gallery img {
     width: 100%;
     break-inside: avoid;
     padding: 10px;
@@ -16,7 +16,7 @@
     padding: 0;
 }
 
-.button-with-img-icon.img-upload{
+.button-with-img-icon.img-upload {
     width: 300px;
 }
 

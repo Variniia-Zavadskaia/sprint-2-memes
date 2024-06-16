@@ -13,7 +13,7 @@
 @import url("components/main-header.css");
 @import url("components/toolbar-container.css");
 /* @import url("components/fonts.css"); */
-/* @import url("components/navigate-pages.css"); */
+@import url("components/saved.css");
 /* @import url("components/footer.css"); */
 
 /* MEDIA QUERIES */

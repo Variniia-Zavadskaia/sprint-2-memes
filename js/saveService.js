@@ -7,16 +7,21 @@ function getSavedMemes() {
     return gSavedMemes
 }
 
-function saveMeme(meme, resImgUrl){
+function saveMeme(meme, resImgUrl) {
     console.log(meme);
 
     var savedMeme = {
-        meme: JSON.parse(JSON.stringify(meme)), 
+        meme: JSON.parse(JSON.stringify(meme)),
         resImgUrl: resImgUrl
     }
     console.log(gSavedMemes);
 
     gSavedMemes.push(savedMeme)
+    _saveMemesToStorage()
+}
+
+function deleteMeme(idx) {
+    gSavedMemes.splice(idx, 1)
     _saveMemesToStorage()
 }
 

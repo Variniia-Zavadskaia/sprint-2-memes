@@ -83,7 +83,7 @@
         grid-template-columns: minmax(5vw, 1fr) minmax(auto, var(--l)) minmax(5vw, 1fr);
     }
 
-    .gallery-conainer {
+    .img-gallery {
         columns: 5 15rem;
     }
 

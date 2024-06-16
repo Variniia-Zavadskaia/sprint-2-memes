@@ -13,6 +13,9 @@ function renderSaved() {
         console.log(meme);
         return `<div class="meme-card">                    
                     <img src="${meme.resImgUrl}" onclick="onOpenSavedEditor(${idx})"/>
+                    <div class="button-with-img-icon delete-meme" id="img" type="button" onclick="onDeleteMeme(${idx})">
+                        <img src="img/icons/delete_trash_icon.png" alt="" height="20" width="20">
+                    </div>
                 </div>`
                 // <img src="${meme.resImgUrl.url}" onclick="onImgSelect(${img.id})" />
     })
@@ -22,4 +25,9 @@ function renderSaved() {
 
 function onOpenSavedEditor(idx) {
     openEditor(getSavedMemes()[idx].meme)
+}
+
+function onDeleteMeme(idx) {
+    deleteMeme(idx) 
+    renderSaved() 
 }
