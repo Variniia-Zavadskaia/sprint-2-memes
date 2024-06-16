@@ -22,6 +22,7 @@ function openEditor(meme = null) {
     meme = getMeme()
     gElCanvas = document.querySelector('.canvas');
     gCtx = gElCanvas.getContext('2d');
+    resizeCanvas()
     gBgImg = new Image()
     gBgImg.src = getImgById(meme.selectedImgId)
     gBgImg.onload = () => renderMeme()
@@ -32,7 +33,7 @@ function renderMeme() {
     const meme = getMeme()
 
     renderImg(gBgImg);
-
+    // resizeCanvas() 
     var x = gElCanvas.width / 2
     var y = gElCanvas.height / 2
 
