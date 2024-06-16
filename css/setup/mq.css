@@ -61,41 +61,11 @@
 
     .editor-container {
         grid-template-columns: 1fr 1fr;
-        /* gap: 40px; */
-        /* margin-bottom: 80px; */
     }
-
-    /* .card>*:not(img) {
-        grid-column: 2;
-    } */
-
-    /* .card h2 {
-        text-transform: uppercase;
-        padding-right: 25px;
-    } */
-
-    /* .card p {
-        padding-right: 25px;
-    } */
-
-    /* .card .card-btn {
-        margin-top: auto;
-    } */
-
-    /* .card-info {
-        margin-top: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-    } */
 
     .btn-toggle-menu {
         display: none;
     }
-
-    /* .main-header {
-        width: fit-content;
-    } */
 
 }
 

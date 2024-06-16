@@ -1,5 +1,5 @@
 .toolbar-container {
-    padding: 16px;
+    /* padding: 16px; */
     /* width: 25rem; */
     margin: 0 auto;
     position: relative;
@@ -101,13 +101,10 @@
         margin-right: 8px;
     }
 
-    /* &.button-with-img-icon {
-        
-
-        .icon {
+       /* .icon {
             margin-right: 0;
         }
-    } */
+     */
 
     /* &.red {
         display: block;
