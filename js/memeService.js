@@ -1,6 +1,6 @@
 'use strict'
 
-const MEME_KEY = "memeDB"
+
 var gImgNextId = 1
 
 var gImgs = [
@@ -43,6 +43,11 @@ function addNewImage(url) {
     gImgs.unshift({
         id: gImgNextId++, url: url, keywords: []
     })
+}
+
+function setMeme(meme)
+{
+    gMeme = meme;
 }
 
 function getMeme() {
@@ -140,8 +145,6 @@ function decreaseFont() {
     gMeme.lines[gMeme.selectedLineIdx].size -= 2
 }
 
-function _saveMemes() {
-    saveToStorage(MEME_KEY, gMeme)
-}
+
 
 

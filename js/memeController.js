@@ -9,12 +9,17 @@ var gPaintFrame = true
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 
-function openEditor() {
+function openEditor(meme = null) {
     document.querySelector('.galery').style.display = 'none';
     document.querySelector('.editor').style.display = 'block';
+    document.querySelector('.saved').style.display = 'none';
 
-    resetMeme()
-    const meme = getMeme()
+    if (meme) {
+        setMeme(meme)
+    } else {
+        resetMeme()
+    }
+    meme = getMeme()
     gElCanvas = document.querySelector('.canvas');
     gCtx = gElCanvas.getContext('2d');
     gBgImg = new Image()
@@ -295,6 +300,17 @@ function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.offsetWidth
     gElCanvas.height = elContainer.offsetHeight
+}
+
+function onSaveMeme() {
+    gPaintFrame = false
+    renderMeme()
+
+    const imgContent = gElCanvas.toDataURL();
+    saveMeme(getMeme(), imgContent);
+
+    gPaintFrame = true
+    renderMeme()
 }
 
 

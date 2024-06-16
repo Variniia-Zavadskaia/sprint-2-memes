@@ -3,6 +3,8 @@
 function renderGallery(imgs = getImgs()) {
     document.querySelector('.galery').style.display = 'block';
     document.querySelector('.editor').style.display = 'none';
+    document.querySelector('.saved').style.display = 'none';
+    
 
     const elGalleryContainer = document.querySelector('.gallery-conainer');
 
