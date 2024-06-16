@@ -17,6 +17,7 @@ var gImgs = [
     { id: gImgNextId++, url: 'img/11.jpg', keywords: ['funny', 'Tramp'] },
     { id: gImgNextId++, url: 'img/12.jpg', keywords: ['cute', 'puppy'] },
 ]
+
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
@@ -36,6 +37,12 @@ function _createLine() {
         pos: null,
         dimentions: null
     }
+}
+
+function addNewImage(url) {
+    gImgs.unshift({
+        id: gImgNextId++, url: url, keywords: []
+    })
 }
 
 function getMeme() {

@@ -22,13 +22,13 @@ function onImgSelect( imgId) {
 }
 
 function onImgInput(ev) {
-    loadImageFromInput(ev, renderImg)
+    loadImageFromInput(ev, addImage)
 }
 
 // Read the file from the input
 // When done send the image to the callback function
 function loadImageFromInput(ev, onImageReady) {
-    console.log('fgfgfgfgfgfgfshbbe');
+    // console.log('fgfgfgfgfgfgfshbbe');
     const reader = new FileReader()
     reader.onload = function (event) {
         let elImg = new Image()
@@ -38,6 +38,11 @@ function loadImageFromInput(ev, onImageReady) {
     reader.readAsDataURL(ev.target.files[0])
 }
 
+
+function addImage(elImg) {
+    addNewImage(elImg.src);
+    renderGallery();
+}
 // function renderImg(elImg) {
 //     // Draw the img on the canvas
 //     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
