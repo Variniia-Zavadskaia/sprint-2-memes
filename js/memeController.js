@@ -163,6 +163,13 @@ function getEvPos(ev) {
         }
         // console.log('pos:', pos)
     }
+
+
+    // const {left, top} = gElCanvas.getBoundingClientRect();
+    
+    //   pos.x =  pos.x - left;
+    //   pos.y =  pos.y - top;
+
     return pos
 }
 
