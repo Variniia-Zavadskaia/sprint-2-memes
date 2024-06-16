@@ -8,24 +8,6 @@
     padding: 10px;
 }
 
-.file-upload {
-    background-color: #ffffff;
-    width: 25rem;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.file-input {
-    /* position: absolute; */
-    margin: 0;
-    padding: 0;
-    width: 50%;
-    height: 50%;
-    outline: none;
-    opacity: 0;
-    cursor: pointer;
-}
-
 .drag-text {
     text-align: center;
     font-weight: 100;
@@ -34,6 +16,15 @@
     padding: 0;
 }
 
-.img-upload{
-    justify-content: space-between;
+.button-with-img-icon.img-upload{
+    width: 300px;
 }
+
+input[type='file'] {
+    z-index: -1;
+    position: absolute;
+}
+
+/* .img-upload{
+    justify-content: space-between;
+} */

@@ -113,12 +113,10 @@ function setImg(id) {
 }
 
 function setTextFill(color) {
-    console.log('fsf');
     gMeme.lines[gMeme.selectedLineIdx].fillColor = color
 }
 
 function setTextStroke(color) {
-    console.log('fsf');
     gMeme.lines[gMeme.selectedLineIdx].strokeColor = color
 }
 
