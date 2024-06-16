@@ -221,15 +221,13 @@ function onAddLine() {
 }
 
 function onDeleteLine() {
-    console.log('ghghghghghg');
+    
     deleteLine()
     renderMeme()
 }
 
 function onSwitchLine() {
-    console.log('gggg');
-    // const elLineIn = document.getElementById('line-inp')
-    // elLineIn.value = gMeme.selectedLineIdx
+   
 
     switchLine()
     renderMeme()
