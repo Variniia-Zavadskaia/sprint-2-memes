@@ -133,3 +133,9 @@ input[type='color'] {
         flex: 1;
     }
 }
+
+@media (min-width: 1060px) {
+    /* .button-with-img-icon {
+        margin: 0 8px;
+    } */
+}
