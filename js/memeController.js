@@ -5,13 +5,14 @@ var gImg
 var gBgImg = null
 var gDrag = false
 var gStartPos
+var gPaintFrame = true
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 
 function openEditor() {
     document.querySelector('.galery').style.display = 'none';
     document.querySelector('.editor').style.display = 'block';
-    
+
     resetMeme()
     const meme = getMeme()
     gElCanvas = document.querySelector('.canvas');
@@ -190,7 +191,7 @@ function drawText(line, selected) {
     // gCtx.textBaseline = 'top';
     gCtx.fillText(txt, x, y);
     gCtx.strokeText(txt, x, y);
-    if (selected) {
+    if (selected && gPaintFrame) {
         gCtx.strokeStyle = 'black'
         gCtx.strokeRect(x - width / 2, y - height / 2, width, height);
     }
@@ -273,8 +274,14 @@ function onDecreaseFont() {
 }
 
 function onDownloadCanvas(elLink) {
+    gPaintFrame = false
+    renderMeme()
+
     const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
     elLink.href = imgContent
+
+    gPaintFrame = true
+    renderMeme()
 }
 
 function resizeCanvas() {
