@@ -36,8 +36,18 @@
 
     <main class="full">
         <div class="galery">
+
+            <div class="file-upload">
+                <label for="icon-btn-upload" class="button-with-img-icon img-upload">
+                    <input class="file-input btn" type="file" name="image" onchange="onImgInput(event)"
+                        accept="image/*" />
+                    <img src="img/icons/upload_photo_picture_image_icon.png" alt="" height="20" width="20">
+                    <h3 class="drag-text">Upload your image</h3>
+                </label>
+            </div>
+
             <section class="gallery-conainer">
-                <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" accept="image/*" />
+
             </section>
         </div>
 
@@ -100,7 +110,6 @@
                             <input type="color" id="icon-btn-fill" name="fill" value="#ffffff"
                                 oninput="onSetTextFill()" />
                         </label>
-                        <!-- <input type="color" id="icon-btn-fill" name="fill" value="#ffffff" oninput="onSetTextFill()" /> -->
 
                         <label for="icon-btn-stroke" class="button-with-img-icon text-srtoke">
                             <img src="img/icons/text_stroke_icon.png" alt="" height="20" width="20">

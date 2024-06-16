@@ -4,6 +4,36 @@
 
 .gallery-conainer img {
     width: 100%;
-    break-inside: avoid; 
-    padding: 10px; 
+    break-inside: avoid;
+    padding: 10px;
+}
+
+.file-upload {
+    background-color: #ffffff;
+    width: 25rem;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.file-input {
+    /* position: absolute; */
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    height: 50%;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.drag-text {
+    text-align: center;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #070707;
+    padding: 0;
+}
+
+.img-upload{
+    justify-content: space-between;
 }
