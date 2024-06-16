@@ -6,7 +6,7 @@
     gap: 40px;
 }
 
-.canvas-container {
+/* .canvas-container {
     display: flex;
     flex: 1;
     height: 100%;
@@ -17,7 +17,12 @@
 .canvas {
     aspect-ratio: 1/  1;
     width: min(100%, 100vh * 2 / 2);
-}
+} */
+
+.canvas-container {
+    width: 35rem;
+    height: 35rem;
+  }
 
 @media (min-width: 860px) {
     .editor-container {

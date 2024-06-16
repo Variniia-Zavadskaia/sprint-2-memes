@@ -11,7 +11,8 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 function openEditor() {
     document.querySelector('.galery').style.display = 'none';
     document.querySelector('.editor').style.display = 'block';
-
+    
+    resetMeme()
     const meme = getMeme()
     gElCanvas = document.querySelector('.canvas');
     gCtx = gElCanvas.getContext('2d');
@@ -93,8 +94,9 @@ function onUp() {
 }
 
 function onKeyDown(event) {
-console.log('fhfjfhfjfhfjf');
-console.log(event.code);
+    if (document.querySelector('.editor').style.display === 'none') return;
+    console.log('fhfjfhfjfhfjf');
+    console.log(event.code);
     switch (event.code) {
         case 'ArrowLeft':
             moveLine(-3, 0);

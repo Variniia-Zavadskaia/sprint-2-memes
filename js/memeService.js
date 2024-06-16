@@ -50,6 +50,11 @@ function getImgById(id) {
     return gImgs.find(img => (img.id === id)).url
 }
 
+function resetMeme() {
+    gMeme.selectedLineIdx = 0
+    gMeme.lines = [_createLine()]
+}
+
 function addLine() {
     const line = _createLine()
     gMeme.lines.push(line)
@@ -72,11 +77,11 @@ function switchLine() {
     console.log(gMeme.selectedLineIdx);
 }
 
-function setFontFamily(font){
+function setFontFamily(font) {
     gMeme.lines[gMeme.selectedLineIdx].font = font
 }
 
-function setFontSize(size){
+function setFontSize(size) {
     gMeme.lines[gMeme.selectedLineIdx].size = size
 }
 
@@ -130,6 +135,6 @@ function decreaseFont() {
 
 function _saveMemes() {
     saveToStorage(MEME_KEY, gMeme)
-  }
+}
 
 
