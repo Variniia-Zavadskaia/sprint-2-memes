@@ -1,0 +1,9 @@
+.meme-card{
+display: flex;
+}
+
+.red {
+width: 20px;
+height: 20px;
+position: absolute;
+}

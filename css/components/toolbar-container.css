@@ -111,11 +111,11 @@
         }
      */
 
-    /* &.red {
-        display: block;
-        width: 100%;
+    &.red {
+        /* display: block; */
+        /* width: 100%; */
         color: red;
-    } */
+    }
 }
 
 input[type='color'] {

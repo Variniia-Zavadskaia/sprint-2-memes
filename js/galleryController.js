@@ -27,10 +27,8 @@ function onImgInput(ev) {
     loadImageFromInput(ev, addImage)
 }
 
-// Read the file from the input
-// When done send the image to the callback function
 function loadImageFromInput(ev, onImageReady) {
-    // console.log('fgfgfgfgfgfgfshbbe');
+    
     const reader = new FileReader()
     reader.onload = function (event) {
         let elImg = new Image()
@@ -45,7 +43,3 @@ function addImage(elImg) {
     addNewImage(elImg.src);
     renderGallery();
 }
-// function renderImg(elImg) {
-//     // Draw the img on the canvas
-//     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-// }
