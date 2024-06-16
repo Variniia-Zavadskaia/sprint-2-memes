@@ -20,10 +20,15 @@
 
 .line-edit,
 .line-decor,
-.tools {
+.tools,
+.share {
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+.share{
+    justify-content: end;
 }
 
 .button-with-img-icon,

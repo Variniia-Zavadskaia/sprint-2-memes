@@ -37,7 +37,7 @@
     <main class="full">
         <div class="galery">
             <section class="gallery-conainer">
-
+                <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" accept="image/*" />
             </section>
         </div>
 
@@ -64,8 +64,7 @@
                             <img src="img/icons/switch_vertical_icon.png" alt="" height="20" width="20">
                         </div>
 
-                        <div class="button-with-img-icon delete-line" id="text" type="button"
-                            onclick="onDeleteLine()">
+                        <div class="button-with-img-icon delete-line" id="text" type="button" onclick="onDeleteLine()">
                             <img src="img/icons/erase_delete_icon.png" alt="" height="20" width="20">
                         </div>
                     </div>
@@ -128,6 +127,14 @@
                             download="my-img.jpg">
                             <img src="img/icons/download_icon.png" alt="" height="20" width="20">
                         </a>
+
+                        <a href="#" class="button-with-img-icon " onclick="onSaveMeme(this)" download="my-img.jpg">
+                            <img src="img/icons/mark_save_icon.png" alt="" height="20" width="20">
+                        </a>
+
+                        <div class="button-with-img-icon share-facebook" onclick="onUploadImg()">
+                            <img src="img/icons/facebook_media_share_social_icon.png" alt="" height="20" width="20">
+                        </div>
                     </div>
                 </form>
 
@@ -135,9 +142,12 @@
         </div>
     </main>
 
+    <script src="js/storageService.js"></script>
+    <script src="js/uploadFromLocal.js"></script>
+    <script src="js/shareOnFaceebok.js"></script>
     <script src="js/memeService.js"></script>
-    <script src="js/galleryController.js"></script>
     <script src="js/memeController.js"></script>
+    <script src="js/galleryController.js"></script>
     <script src="js/main.js"></script>
 </body>
 

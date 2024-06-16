@@ -1,5 +1,6 @@
 'use strict'
 
+const MEME_KEY = "memeDB"
 var gImgNextId = 1
 
 var gImgs = [
@@ -129,5 +130,8 @@ function decreaseFont() {
     gMeme.lines[gMeme.selectedLineIdx].size -= 2
 }
 
+function _saveMemes() {
+    saveToStorage(MEME_KEY, gMeme)
+  }
 
 
