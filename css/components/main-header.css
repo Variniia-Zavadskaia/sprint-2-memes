@@ -19,8 +19,8 @@
     justify-content: center;
     align-items: center;
 
-    min-width: 130px;
-    min-height: 130px;
+    min-width: 75px;
+    min-height: 75px;
 
     transition: box-shadow 0.2s;
     will-change: box-shadow;
@@ -37,8 +37,9 @@
 
 .logo {
     color: lightcyan;
-    font-size: 2.5em;
+    font-size: 2em;
     letter-spacing: -1px;
+    text-transform: uppercase
 }
 
 .main-header .btn-toggle-menu {
