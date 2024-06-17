@@ -12,9 +12,8 @@
 @import url("components/galery.css");
 @import url("components/main-header.css");
 @import url("components/toolbar-container.css");
-/* @import url("components/fonts.css"); */
 @import url("components/saved.css");
-/* @import url("components/footer.css"); */
+
 
 /* MEDIA QUERIES */
 @import url("setup/mq.css");

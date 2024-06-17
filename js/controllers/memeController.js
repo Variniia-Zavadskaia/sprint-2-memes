@@ -33,12 +33,9 @@ function renderMeme() {
     const meme = getMeme()
 
     renderImg(gBgImg);
-    // resizeCanvas() 
     var x = gElCanvas.width / 2
     var y = gElCanvas.height / 2
 
-    // // //* Clear the canvas,  fill it with grey background
-    // setTimeout(() => { drawText(meme.lines[meme.selectedLineIdx], gElCanvas.width / 2, gElCanvas.height / 2) }, 2)
     meme.lines.forEach((line, idx) => {
         if (line.pos === null) {
             line.pos = { x, y };
@@ -54,14 +51,10 @@ function renderMeme() {
     document.getElementById('font-size').value = meme.lines[meme.selectedLineIdx].size
     document.getElementById('icon-btn-stroke').value = meme.lines[meme.selectedLineIdx].strokeColor
     document.getElementById('icon-btn-fill').value = meme.lines[meme.selectedLineIdx].fillColor
-
-    // drawText('Add text here', gElCanvas.width/2, gElCanvas.height/2)
 }
 
 function renderImg(bgImg) {
-    // Draw the img on the canvas
     gCtx.drawImage(bgImg, 0, 0, gElCanvas.width, gElCanvas.height)
-    // drawText(meme.lines[meme.selectedLineIdx], gElCanvas.width/2, gElCanvas.height/2)
 }
 
 function onDown(ev) {

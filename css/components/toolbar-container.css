@@ -27,7 +27,7 @@
     justify-content: center;
 }
 
-.share{
+.share {
     justify-content: end;
 }
 
@@ -45,7 +45,6 @@
 .line-inp {
     display: block;
     margin-bottom: 24px;
-    /* width: 100%; */
 }
 
 #line-inp,
@@ -106,14 +105,7 @@
         margin-right: 8px;
     }
 
-       /* .icon {
-            margin-right: 0;
-        }
-     */
-
     &.red {
-        /* display: block; */
-        /* width: 100%; */
         color: red;
     }
 }
@@ -132,10 +124,4 @@ input[type='color'] {
         margin: 0;
         flex: 1;
     }
-}
-
-@media (min-width: 1060px) {
-    /* .button-with-img-icon {
-        margin: 0 8px;
-    } */
 }

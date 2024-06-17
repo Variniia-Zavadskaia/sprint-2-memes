@@ -5,7 +5,6 @@ function renderGallery(imgs = getImgs()) {
     document.querySelector('.editor').style.display = 'none';
     document.querySelector('.saved').style.display = 'none';
     
-
     const elGalleryContainer = document.querySelector('.gallery-conainer');
 
     const strHTMLs = imgs.map(img => {
