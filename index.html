@@ -17,8 +17,6 @@
                 <ul class="clean-list grid flow-column">
                     <li><a href="#" onclick="renderGallery()">Gallery</a></li>
                     <li><a href="#" onclick="renderSaved()">Saved</a></li>
-                    <!-- <li><a href="#">Work</a></li>
-                    <li><a href="#">Contact</a></li> -->
                 </ul>
             </div>
 
@@ -39,28 +37,25 @@
 
             <div class="file-upload">
                 <label for="icon-btn-upload" class="button-with-img-icon img-upload flex space-between ">
-                    <input class="file-input btn" id="icon-btn-upload" type="file" name="image" onchange="onImgInput(event)"
-                        accept="image/*" />
+                    <input class="file-input btn" id="icon-btn-upload" type="file" name="image"
+                        onchange="onImgInput(event)" accept="image/*" />
                     <img src="img/icons/upload_photo_picture_image_icon.png" alt="" height="20" width="20">
                     <h3 class="drag-text">Upload your image</h3>
                 </label>
             </div>
 
-            <section class="gallery-conainer img-gallery">
+            <div class="gallery">
+                <section class="gallery-conainer img-gallery"></section>
+            </div>
 
-            </section>
         </div>
 
         <div class="saved">
-
-            <section class="saved-conainer img-gallery">
-
-            </section>
+            <section class="saved-conainer img-gallery"></section>
         </div>
 
         <div class="editor">
             <section class="editor-container">
-                <!-- <section class="editor-container grid space-around align-center flow-column"></section> -->
 
                 <div class="canvas-container">
                     <canvas class="canvas" width="400" height="400"> </canvas>
@@ -87,7 +82,6 @@
                     </div>
 
                     <div class="line-edit">
-
                         <select id="fontFamily" value="" onchange="onChangeFontFamily()">
                             <!-- <option id="impact" value="Impact">Impact</option>
                             <option id="anton" value="anton">Anton</option>
@@ -120,7 +114,6 @@
                     </div>
 
                     <div class="line-decor">
-
                         <label for="icon-btn-fill" class="button-with-img-icon text-fill">
                             <img src="img/icons/color_palette_icon.png" alt="" height="20" width="20">
                             <input type="color" id="icon-btn-fill" name="fill" value="#ffffff"
@@ -132,19 +125,6 @@
                             <input type="color" id="icon-btn-stroke" name="stroke" value="#000000"
                                 oninput="onSetTextStroke()" />
                         </label>
-                        <!-- <input type="color" id="icon-btn-stroke" name="stroke" value="#000000" oninput="onSetTextStroke()" /> -->
-
-                        <!-- <div class="button-with-img-icon font-down" onclick="onDecreaseFont()">
-                            <img src="img/icons/9118194_text_align_left_icon.png" alt="" height="20" width="20">
-                        </div>
-
-                        <div class="button-with-img-icon font-down" onclick="onDecreaseFont()">
-                            <img src="img/icons/align_center_icon.png" alt="" height="20" width="20">
-                        </div>
-
-                        <div class="button-with-img-icon font-down" onclick="onDecreaseFont()">
-                            <img src="img/icons/align_right_icon.png" alt="" height="20" width="20">
-                        </div> -->
                     </div>
 
                     <div class="share">
@@ -161,13 +141,13 @@
                             <img src="img/icons/facebook_media_share_social_icon.png" alt="" height="20" width="20">
                         </div>
                     </div>
+                    
                 </form>
 
             </section>
         </div>
     </main>
 
-    
     <script src="js//services/storageService.js"></script>
     <script src="js/services/saveService.js"></script>
     <script src="js/services/memeService.js"></script>
@@ -176,6 +156,7 @@
     <script src="js/controllers/galleryController.js"></script>
     <script src="js/shareOnFaceebok.js"></script>
     <script src="js/main.js"></script>
+
 </body>
 
 </html>

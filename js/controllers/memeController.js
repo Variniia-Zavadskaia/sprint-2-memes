@@ -59,9 +59,7 @@ function renderImg(bgImg) {
 
 function onDown(ev) {
     console.log('onDown')
-    // //* Get the ev pos from mouse or touch
     const pos = getEvPos(ev)
-    // //* console.log('pos', pos)
     const currIdx = findLineIdxCliked(pos)
     console.log(pos, currIdx);
     if (currIdx === -1) return
@@ -69,7 +67,6 @@ function onDown(ev) {
     renderMeme()
 
     gDrag = true
-    //* Save the pos we start from
     gStartPos = pos
     document.body.style.cursor = 'grabbing'
 }
@@ -78,13 +75,11 @@ function onMove(ev) {
     if (!gDrag) return
 
     const pos = getEvPos(ev)
-    //* Calc the delta, the diff we moved
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
+
     moveLine(dx, dy)
-    //* Save the last pos, we remember where we`ve been and move accordingly
     gStartPos = pos
-    //* The canvas is render again after every move
     renderMeme()
 }
 
@@ -119,14 +114,10 @@ function onKeyDown(event) {
 function addListeners() {
     addMouseListeners()
     addTouchListeners()
-    // * Listen for resize ev
+   
     window.addEventListener('resize', () => {
-        console.log("dsds");
         resizeCanvas()
-        //* Calc the center of the canvas
         const center = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
-        // * Create the circle in the center
-
         renderMeme()
     })
 }
@@ -151,23 +142,13 @@ function getEvPos(ev) {
     }
 
     if (TOUCH_EVS.includes(ev.type)) {
-        //* Prevent triggering the mouse ev
         ev.preventDefault()
-        //* Gets the first touch point
         ev = ev.changedTouches[0]
-        //* Calc the right pos according to the touch screen
         pos = {
             x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
             y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
         }
-        // console.log('pos:', pos)
     }
-
-
-    // const {left, top} = gElCanvas.getBoundingClientRect();
-    
-    //   pos.x =  pos.x - left;
-    //   pos.y =  pos.y - top;
 
     return pos
 }
@@ -193,8 +174,6 @@ function drawText(line, selected) {
     gCtx.textBaseline = 'middle';
 
     width = gCtx.measureText(txt).width + 4;
-    // gCtx.textAlign = 'left';
-    // gCtx.textBaseline = 'top';
     gCtx.fillText(txt, x, y);
     gCtx.strokeText(txt, x, y);
     if (selected && gPaintFrame) {
@@ -213,15 +192,12 @@ function onAddLine() {
     renderMeme()
 }
 
-function onDeleteLine() {
-    
+function onDeleteLine() {    
     deleteLine()
     renderMeme()
 }
 
 function onSwitchLine() {
-   
-
     switchLine()
     renderMeme()
 }
@@ -281,7 +257,7 @@ function onDownloadCanvas(elLink) {
     gPaintFrame = false
     renderMeme()
 
-    const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
+    const imgContent = gElCanvas.toDataURL('image/jpeg') 
     elLink.href = imgContent
 
     gPaintFrame = true
