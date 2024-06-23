@@ -1,19 +1,18 @@
 /* SETUP */
-@import url("setup/vars.css");
+@import url('setup/vars.css');
 /* @import url("setup/typography.css"); */
 
 /* BASICS  */
-@import url("basics/base.css");
-@import url("basics/layout.css");
-@import url("basics/helpers.css");
+@import url('basics/base.css');
+@import url('basics/layout.css');
+@import url('basics/helpers.css');
 
 /* COMPONENTS */
-@import url("components/editor.css");
-@import url("components/galery.css");
-@import url("components/main-header.css");
-@import url("components/toolbar-container.css");
-@import url("components/saved.css");
-
+@import url('components/editor.css');
+@import url('components/galery.css');
+@import url('components/main-header.css');
+@import url('components/toolbar-container.css');
+@import url('components/saved.css');
 
 /* MEDIA QUERIES */
-@import url("setup/mq.css");
+@import url('setup/mq.css');

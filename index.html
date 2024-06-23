@@ -1,89 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/style.css" />
+        <title>Meme Generator</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Meme Generator</title>
-</head>
-
-<body class="main-layout" onload="onInit()" onkeydown="onKeyDown(event)">
-
-    <header class="main-header main-layout full">
-        <nav class="main-nav-container grid space-between align-center flow-column">
-            <div class="logo ">Meme Generator</div>
-            <div class="main-nav">
-                <ul class="clean-list grid flow-column">
-                    <li><a href="#" onclick="renderGallery()">Gallery</a></li>
-                    <li><a href="#" onclick="renderSaved()">Saved</a></li>
-                </ul>
-            </div>
-
-            <!-- hamburger menu -->
-            <button class="btn-toggle-menu" onclick="toggleMenu()">
-                <div class="hamburger-lines">
-                    <span class="line line1"></span>
-                    <span class="line line2"></span>
-                    <span class="line line3"></span>
-                </div>
-            </button>
-        </nav>
-    </header>
-
-
-    <main class="full">
-        <div class="galery">
-
-            <div class="file-upload">
-                <label for="icon-btn-upload" class="button-with-img-icon img-upload flex space-between ">
-                    <input class="file-input btn" id="icon-btn-upload" type="file" name="image"
-                        onchange="onImgInput(event)" accept="image/*" />
-                    <img src="img/icons/upload_photo_picture_image_icon.png" alt="" height="20" width="20">
-                    <h3 class="drag-text">Upload your image</h3>
-                </label>
-            </div>
-
-            <div class="gallery">
-                <section class="gallery-conainer img-gallery"></section>
-            </div>
-
-        </div>
-
-        <div class="saved">
-            <section class="saved-conainer img-gallery"></section>
-        </div>
-
-        <div class="editor">
-            <section class="editor-container">
-
-                <div class="canvas-container">
-                    <canvas class="canvas" width="400" height="400"> </canvas>
+    <body class="main-layout" onload="onInit()" onkeydown="onKeyDown(event)">
+        <header class="main-header main-layout full">
+            <nav class="main-nav-container grid space-between align-center flow-column">
+                <div class="logo">Meme Generator</div>
+                <div class="main-nav">
+                    <ul class="clean-list grid flow-column">
+                        <li><a href="#" onclick="renderGallery()">Gallery</a></li>
+                        <li><a href="#" onclick="renderSaved()">Saved</a></li>
+                    </ul>
                 </div>
 
-                <form class="toolbar-container">
+                <!-- hamburger menu -->
+                <button class="btn-toggle-menu" onclick="toggleMenu()">
+                    <div class="hamburger-lines">
+                        <span class="line line1"></span>
+                        <span class="line line2"></span>
+                        <span class="line line3"></span>
+                    </div>
+                </button>
+            </nav>
+        </header>
 
-                    <label class="line-inp">
-                        <input type="text" id="line-inp" placeholder="Add Text Here" oninput="onLineChange()">
+        <main class="full">
+            <div class="galery">
+                <div class="file-upload">
+                    <label for="icon-btn-upload" class="button-with-img-icon img-upload flex space-between">
+                        <input
+                            class="file-input btn"
+                            id="icon-btn-upload"
+                            type="file"
+                            name="image"
+                            onchange="onImgInput(event)"
+                            accept="image/*" />
+                        <img src="img/icons/upload_photo_picture_image_icon.png" alt="" height="20" width="20" />
+                        <h3 class="drag-text">Upload your image</h3>
                     </label>
+                </div>
 
-                    <div class="tools">
-                        <div class="button-with-img-icon new-line" id="text" onclick="onAddLine()">
-                            <img src="img/icons/add_to_queue_icon.png" alt="" height="20" width="20">
-                        </div>
+                <div class="gallery">
+                    <section class="gallery-conainer img-gallery"></section>
+                </div>
+            </div>
 
-                        <div class="button-with-img-icon switch-line" id="switch-line" onclick="onSwitchLine()">
-                            <img src="img/icons/switch_vertical_icon.png" alt="" height="20" width="20">
-                        </div>
+            <div class="saved">
+                <section class="saved-conainer img-gallery"></section>
+            </div>
 
-                        <div class="button-with-img-icon delete-line" id="text" type="button" onclick="onDeleteLine()">
-                            <img src="img/icons/erase_delete_icon.png" alt="" height="20" width="20">
-                        </div>
+            <div class="editor">
+                <section class="editor-container">
+                    <div class="canvas-container">
+                        <canvas class="canvas" width="400" height="400"> </canvas>
                     </div>
 
-                    <div class="line-edit">
-                        <select id="fontFamily" value="" onchange="onChangeFontFamily()">
-                            <!-- <option id="impact" value="Impact">Impact</option>
+                    <form class="toolbar-container">
+                        <label class="line-inp">
+                            <input type="text" id="line-inp" placeholder="Add Text Here" oninput="onLineChange()" />
+                        </label>
+
+                        <div class="tools">
+                            <div class="button-with-img-icon new-line" id="text" onclick="onAddLine()">
+                                <img src="img/icons/add_to_queue_icon.png" alt="" height="20" width="20" />
+                            </div>
+
+                            <div class="button-with-img-icon switch-line" id="switch-line" onclick="onSwitchLine()">
+                                <img src="img/icons/switch_vertical_icon.png" alt="" height="20" width="20" />
+                            </div>
+
+                            <div
+                                class="button-with-img-icon delete-line"
+                                id="text"
+                                type="button"
+                                onclick="onDeleteLine()">
+                                <img src="img/icons/erase_delete_icon.png" alt="" height="20" width="20" />
+                            </div>
+                        </div>
+
+                        <div class="line-edit">
+                            <select id="fontFamily" value="" onchange="onChangeFontFamily()">
+                                <!-- <option id="impact" value="Impact">Impact</option>
                             <option id="anton" value="anton">Anton</option>
                             <option id="cinzel" value="cinzel">Cinzel</option>
                             <option id="dancingscript" value="dancingscript">Dancingscript</option>
@@ -92,71 +94,86 @@
                             <option id="moolahlah" value="moolahlah">Moolahlah</option>
                             <option id="rubikpuddles" value="rubikpuddles">Rubikpuddles</option>
                             <option id="teko" value="teko">Teko</option> -->
-                            <option id="impact" value="Impact">Impact</option>
-                            <option id="arial" value="Arial">Arial</option>
-                            <option id="georgia" value="Georgia">Georgia</option>
-                            <option id="tahoma" value="Tahoma">Tahoma</option>
-                            <option id="verdana" value="Verdana">Verdana</option>
-                            <option id="garamond" value="Garamond">Garamond</option>
-                        </select>
+                                <option id="impact" value="Impact">Impact</option>
+                                <option id="arial" value="Arial">Arial</option>
+                                <option id="georgia" value="Georgia">Georgia</option>
+                                <option id="tahoma" value="Tahoma">Tahoma</option>
+                                <option id="verdana" value="Verdana">Verdana</option>
+                                <option id="garamond" value="Garamond">Garamond</option>
+                            </select>
 
-                        <label class="font-size ">
-                            <input type="number" id="font-size" value="40" onchange="onChangeFontSize()">
-                        </label>
+                            <label class="font-size">
+                                <input type="number" id="font-size" value="40" onchange="onChangeFontSize()" />
+                            </label>
 
-                        <div class="button-with-img-icon font-up" onclick="onIncreaseFont()">
-                            <img src="img/icons/fluent_font_increase_regular_icon.png" alt="" height="20" width="20">
+                            <div class="button-with-img-icon font-up" onclick="onIncreaseFont()">
+                                <img
+                                    src="img/icons/fluent_font_increase_regular_icon.png"
+                                    alt=""
+                                    height="20"
+                                    width="20" />
+                            </div>
+
+                            <div class="button-with-img-icon font-down" onclick="onDecreaseFont()">
+                                <img src="img/icons/font_decrease_regular_icon.png" alt="" height="20" width="20" />
+                            </div>
                         </div>
 
-                        <div class="button-with-img-icon font-down" onclick="onDecreaseFont()">
-                            <img src="img/icons/font_decrease_regular_icon.png" alt="" height="20" width="20">
+                        <div class="line-decor">
+                            <label for="icon-btn-fill" class="button-with-img-icon text-fill">
+                                <img src="img/icons/color_palette_icon.png" alt="" height="20" width="20" />
+                                <input
+                                    type="color"
+                                    id="icon-btn-fill"
+                                    name="fill"
+                                    value="#ffffff"
+                                    oninput="onSetTextFill()" />
+                            </label>
+
+                            <label for="icon-btn-stroke" class="button-with-img-icon text-srtoke">
+                                <img src="img/icons/text_stroke_icon.png" alt="" height="20" width="20" />
+                                <input
+                                    type="color"
+                                    id="icon-btn-stroke"
+                                    name="stroke"
+                                    value="#000000"
+                                    oninput="onSetTextStroke()" />
+                            </label>
                         </div>
-                    </div>
 
-                    <div class="line-decor">
-                        <label for="icon-btn-fill" class="button-with-img-icon text-fill">
-                            <img src="img/icons/color_palette_icon.png" alt="" height="20" width="20">
-                            <input type="color" id="icon-btn-fill" name="fill" value="#ffffff"
-                                oninput="onSetTextFill()" />
-                        </label>
+                        <div class="share">
+                            <a
+                                href="#"
+                                class="button-with-img-icon"
+                                onclick="onDownloadCanvas(this)"
+                                download="my-img.jpg">
+                                <img src="img/icons/download_icon.png" alt="" height="20" width="20" />
+                            </a>
 
-                        <label for="icon-btn-stroke" class="button-with-img-icon text-srtoke">
-                            <img src="img/icons/text_stroke_icon.png" alt="" height="20" width="20">
-                            <input type="color" id="icon-btn-stroke" name="stroke" value="#000000"
-                                oninput="onSetTextStroke()" />
-                        </label>
-                    </div>
+                            <a href="#" class="button-with-img-icon" onclick="onSaveMeme()">
+                                <img src="img/icons/mark_save_icon.png" alt="" height="20" width="20" />
+                            </a>
 
-                    <div class="share">
-                        <a href="#" class="button-with-img-icon " onclick="onDownloadCanvas(this)"
-                            download="my-img.jpg">
-                            <img src="img/icons/download_icon.png" alt="" height="20" width="20">
-                        </a>
-
-                        <a href="#" class="button-with-img-icon " onclick="onSaveMeme()">
-                            <img src="img/icons/mark_save_icon.png" alt="" height="20" width="20">
-                        </a>
-
-                        <div class="button-with-img-icon share-facebook" onclick="onUploadImg()">
-                            <img src="img/icons/facebook_media_share_social_icon.png" alt="" height="20" width="20">
+                            <div class="button-with-img-icon share-facebook" onclick="onUploadImg()">
+                                <img
+                                    src="img/icons/facebook_media_share_social_icon.png"
+                                    alt=""
+                                    height="20"
+                                    width="20" />
+                            </div>
                         </div>
-                    </div>
-                    
-                </form>
+                    </form>
+                </section>
+            </div>
+        </main>
 
-            </section>
-        </div>
-    </main>
-
-    <script src="js//services/storageService.js"></script>
-    <script src="js/services/saveService.js"></script>
-    <script src="js/services/memeService.js"></script>
-    <script src="js/controllers/saveController.js"></script>
-    <script src="js/controllers/memeController.js"></script>
-    <script src="js/controllers/galleryController.js"></script>
-    <script src="js/shareOnFaceebok.js"></script>
-    <script src="js/main.js"></script>
-
-</body>
-
+        <script src="js//services/storageService.js"></script>
+        <script src="js/services/saveService.js"></script>
+        <script src="js/services/memeService.js"></script>
+        <script src="js/controllers/saveController.js"></script>
+        <script src="js/controllers/memeController.js"></script>
+        <script src="js/controllers/galleryController.js"></script>
+        <script src="js/shareOnFaceebok.js"></script>
+        <script src="js/main.js"></script>
+    </body>
 </html>

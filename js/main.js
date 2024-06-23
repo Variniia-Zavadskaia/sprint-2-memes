@@ -1,11 +1,11 @@
 'use strict'
 
 function onInit() {
-    console.log("dsdsd");
-    renderGallery();
+    console.log('dsdsd')
+    renderGallery()
     // openEditor()
 }
 
 function toggleMenu() {
-    document.body.classList.toggle("menu-open")
+    document.body.classList.toggle('menu-open')
 }

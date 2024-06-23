@@ -1,6 +1,6 @@
 'use strict'
-var gElCanvas;
-var gCtx;
+var gElCanvas
+var gCtx
 var gImg
 var gBgImg = null
 var gDrag = false
@@ -8,11 +8,10 @@ var gStartPos
 var gPaintFrame = true
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
-
 function openEditor(meme = null) {
-    document.querySelector('.galery').style.display = 'none';
-    document.querySelector('.editor').style.display = 'block';
-    document.querySelector('.saved').style.display = 'none';
+    document.querySelector('.galery').style.display = 'none'
+    document.querySelector('.editor').style.display = 'block'
+    document.querySelector('.saved').style.display = 'none'
 
     if (meme) {
         setMeme(meme)
@@ -20,8 +19,8 @@ function openEditor(meme = null) {
         resetMeme()
     }
     meme = getMeme()
-    gElCanvas = document.querySelector('.canvas');
-    gCtx = gElCanvas.getContext('2d');
+    gElCanvas = document.querySelector('.canvas')
+    gCtx = gElCanvas.getContext('2d')
     resizeCanvas()
     gBgImg = new Image()
     gBgImg.src = getImgById(meme.selectedImgId)
@@ -32,18 +31,18 @@ function openEditor(meme = null) {
 function renderMeme() {
     const meme = getMeme()
 
-    renderImg(gBgImg);
+    renderImg(gBgImg)
     var x = gElCanvas.width / 2
     var y = gElCanvas.height / 2
 
     meme.lines.forEach((line, idx) => {
         if (line.pos === null) {
-            line.pos = { x, y };
+            line.pos = { x, y }
         }
-        line.dimentions = drawText(line, idx === meme.selectedLineIdx);
-        console.log(line);
-        x += 30;
-        y += 30;
+        line.dimentions = drawText(line, idx === meme.selectedLineIdx)
+        console.log(line)
+        x += 30
+        y += 30
     })
 
     document.getElementById('line-inp').value = meme.lines[meme.selectedLineIdx].txt
@@ -61,7 +60,7 @@ function onDown(ev) {
     console.log('onDown')
     const pos = getEvPos(ev)
     const currIdx = findLineIdxCliked(pos)
-    console.log(pos, currIdx);
+    console.log(pos, currIdx)
     if (currIdx === -1) return
     setLineIdx(currIdx)
     renderMeme()
@@ -89,24 +88,24 @@ function onUp() {
 }
 
 function onKeyDown(event) {
-    if (document.querySelector('.editor').style.display === 'none') return;
-    console.log('fhfjfhfjfhfjf');
-    console.log(event.code);
+    if (document.querySelector('.editor').style.display === 'none') return
+    console.log(event.code)
     switch (event.code) {
         case 'ArrowLeft':
-            moveLine(-3, 0);
+            moveLine(-3, 0)
             break
         case 'ArrowRight':
-            moveLine(3, 0);
-            break;
+            moveLine(3, 0)
+            break
         case 'ArrowUp':
-            moveLine(0, -3);
-            break;
+            moveLine(0, -3)
+            break
         case 'ArrowDown':
-            moveLine(0, 3);
-            break;
+            moveLine(0, 3)
+            break
 
-        default: return null;
+        default:
+            return null
     }
     renderMeme()
 }
@@ -114,7 +113,7 @@ function onKeyDown(event) {
 function addListeners() {
     addMouseListeners()
     addTouchListeners()
-   
+
     window.addEventListener('resize', () => {
         resizeCanvas()
         const center = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
@@ -135,7 +134,6 @@ function addTouchListeners() {
 }
 
 function getEvPos(ev) {
-
     let pos = {
         x: ev.offsetX,
         y: ev.offsetY,
@@ -155,8 +153,8 @@ function getEvPos(ev) {
 
 function drawText(line, selected) {
     var txt = line.txt
-    var height = line.size * 1.286;
-    var width;
+    var height = line.size * 1.286
+    var width
     var x = line.pos.x
     var y = line.pos.y
 
@@ -164,21 +162,21 @@ function drawText(line, selected) {
         txt = 'Add Text Here'
     }
 
-    gCtx.beginPath();
+    gCtx.beginPath()
 
-    gCtx.lineWidth = 2;
-    gCtx.strokeStyle = line.strokeColor;
-    gCtx.fillStyle = line.fillColor;
-    gCtx.font = line.size + 'px ' + line.font;
-    gCtx.textAlign = 'center';
-    gCtx.textBaseline = 'middle';
+    gCtx.lineWidth = 2
+    gCtx.strokeStyle = line.strokeColor
+    gCtx.fillStyle = line.fillColor
+    gCtx.font = line.size + 'px ' + line.font
+    gCtx.textAlign = 'center'
+    gCtx.textBaseline = 'middle'
 
-    width = gCtx.measureText(txt).width + 4;
-    gCtx.fillText(txt, x, y);
-    gCtx.strokeText(txt, x, y);
+    width = gCtx.measureText(txt).width + 4
+    gCtx.fillText(txt, x, y)
+    gCtx.strokeText(txt, x, y)
     if (selected && gPaintFrame) {
         gCtx.strokeStyle = 'black'
-        gCtx.strokeRect(x - width / 2, y - height / 2, width, height);
+        gCtx.strokeRect(x - width / 2, y - height / 2, width, height)
     }
 
     return { width, height }
@@ -192,7 +190,7 @@ function onAddLine() {
     renderMeme()
 }
 
-function onDeleteLine() {    
+function onDeleteLine() {
     deleteLine()
     renderMeme()
 }
@@ -203,7 +201,7 @@ function onSwitchLine() {
 }
 
 function onChangeFontFamily() {
-    const elFont = document.getElementById("fontFamily")
+    const elFont = document.getElementById('fontFamily')
     var font = elFont.value
 
     setFontFamily(font)
@@ -211,7 +209,7 @@ function onChangeFontFamily() {
 }
 
 function onChangeFontSize() {
-    const elFont = document.getElementById("font-size")
+    const elFont = document.getElementById('font-size')
     var size = elFont.value
 
     setFontSize(size)
@@ -220,44 +218,44 @@ function onChangeFontSize() {
 
 function onLineChange() {
     const elLineIn = document.getElementById('line-inp')
-    const newLine = elLineIn.value;
+    const newLine = elLineIn.value
 
-    console.log("dsds");
-    console.log(newLine);
+    console.log('dsds')
+    console.log(newLine)
 
-    setLineTxt(newLine);
-    renderMeme();
+    setLineTxt(newLine)
+    renderMeme()
 }
 
 function onSetTextFill() {
     const elClrChoice = document.getElementById('icon-btn-fill')
     var color = elClrChoice.value
     setTextFill(color)
-    renderMeme();
+    renderMeme()
 }
 
 function onSetTextStroke() {
     const elClrChoice = document.getElementById('icon-btn-stroke')
     var color = elClrChoice.value
     setTextStroke(color)
-    renderMeme();
+    renderMeme()
 }
 
 function onIncreaseFont() {
     increaseFont()
-    renderMeme();
+    renderMeme()
 }
 
 function onDecreaseFont() {
     decreaseFont()
-    renderMeme();
+    renderMeme()
 }
 
 function onDownloadCanvas(elLink) {
     gPaintFrame = false
     renderMeme()
 
-    const imgContent = gElCanvas.toDataURL('image/jpeg') 
+    const imgContent = gElCanvas.toDataURL('image/jpeg')
     elLink.href = imgContent
 
     gPaintFrame = true
@@ -274,11 +272,9 @@ function onSaveMeme() {
     gPaintFrame = false
     renderMeme()
 
-    const imgContent = gElCanvas.toDataURL();
-    saveMeme(getMeme(), imgContent);
+    const imgContent = gElCanvas.toDataURL()
+    saveMeme(getMeme(), imgContent)
 
     gPaintFrame = true
     renderMeme()
 }
-
-

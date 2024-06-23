@@ -3,10 +3,10 @@
     grid-template-columns: 2vw 1fr 2vw;
 }
 
-.main-layout>*:not(.full) {
+.main-layout > *:not(.full) {
     grid-column: 2;
 }
 
-.main-layout>*.full {
+.main-layout > *.full {
     grid-column: 1/-1;
 }

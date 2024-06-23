@@ -1,11 +1,11 @@
 'use strict'
 
 function renderGallery(imgs = getImgs()) {
-    document.querySelector('.galery').style.display = 'block';
-    document.querySelector('.editor').style.display = 'none';
-    document.querySelector('.saved').style.display = 'none';
-    
-    const elGalleryContainer = document.querySelector('.gallery-conainer');
+    document.querySelector('.galery').style.display = 'block'
+    document.querySelector('.editor').style.display = 'none'
+    document.querySelector('.saved').style.display = 'none'
+
+    const elGalleryContainer = document.querySelector('.gallery-conainer')
 
     const strHTMLs = imgs.map(img => {
         return `<div class="img-card">
@@ -13,13 +13,12 @@ function renderGallery(imgs = getImgs()) {
                 </div>`
     })
 
-    elGalleryContainer.innerHTML = strHTMLs.join('');
+    elGalleryContainer.innerHTML = strHTMLs.join('')
 }
 
-function onImgSelect( imgId) {
-
-    setImg(imgId);
-    openEditor();
+function onImgSelect(imgId) {
+    setImg(imgId)
+    openEditor()
 }
 
 function onImgInput(ev) {
@@ -27,7 +26,6 @@ function onImgInput(ev) {
 }
 
 function loadImageFromInput(ev, onImageReady) {
-    
     const reader = new FileReader()
     reader.onload = function (event) {
         let elImg = new Image()
@@ -37,8 +35,7 @@ function loadImageFromInput(ev, onImageReady) {
     reader.readAsDataURL(ev.target.files[0])
 }
 
-
 function addImage(elImg) {
-    addNewImage(elImg.src);
-    renderGallery();
+    addNewImage(elImg.src)
+    renderGallery()
 }

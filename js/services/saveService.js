@@ -1,6 +1,6 @@
 'use strict'
 
-const MEME_KEY = "memeDB"
+const MEME_KEY = 'memeDB'
 var gSavedMemes = loadFromStorage(MEME_KEY) || []
 
 function getSavedMemes() {
@@ -8,13 +8,13 @@ function getSavedMemes() {
 }
 
 function saveMeme(meme, resImgUrl) {
-    console.log(meme);
+    console.log(meme)
 
     var savedMeme = {
         meme: JSON.parse(JSON.stringify(meme)),
-        resImgUrl: resImgUrl
+        resImgUrl: resImgUrl,
     }
-    console.log(gSavedMemes);
+    console.log(gSavedMemes)
 
     gSavedMemes.push(savedMeme)
     _saveMemesToStorage()
@@ -28,5 +28,3 @@ function deleteMeme(idx) {
 function _saveMemesToStorage() {
     saveToStorage(MEME_KEY, gSavedMemes)
 }
-
-

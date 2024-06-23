@@ -1,6 +1,4 @@
 .toolbar-container {
-    /* padding: 16px; */
-    /* width: 25rem; */
     margin: 0 auto;
     position: relative;
     width: 100%;
@@ -27,9 +25,9 @@
     justify-content: center;
 }
 
-.share {
+/* .share {
     justify-content: end;
-}
+} */
 
 .button-with-img-icon,
 #line-inp,

@@ -13,14 +13,14 @@ body {
 
 a {
     color: var(--clrPrimary-4);
-     text-decoration: none;    
+    text-decoration: none;
 }
 
 body,
 a,
 input,
 button {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     letter-spacing: -0.2px;
     font-size: 16px;
 }

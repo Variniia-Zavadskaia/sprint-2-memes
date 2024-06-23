@@ -1,6 +1,5 @@
 'use strict'
 
-
 var gImgNextId = 1
 
 var gImgs = [
@@ -21,11 +20,9 @@ var gImgs = [
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
-    lines: [
-        _createLine()
-    ]
+    lines: [_createLine()],
 }
-var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+var gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 }
 
 function _createLine() {
     return {
@@ -35,23 +32,24 @@ function _createLine() {
         fillColor: '#ffffff',
         strokeColor: '#000000',
         pos: null,
-        dimentions: null
+        dimentions: null,
     }
 }
 
 function addNewImage(url) {
     gImgs.unshift({
-        id: gImgNextId++, url: url, keywords: []
+        id: gImgNextId++,
+        url: url,
+        keywords: [],
     })
 }
 
-function setMeme(meme)
-{
-    gMeme = meme;
+function setMeme(meme) {
+    gMeme = meme
 }
 
 function getMeme() {
-    return gMeme;
+    return gMeme
 }
 
 function getImgs() {
@@ -59,7 +57,7 @@ function getImgs() {
 }
 
 function getImgById(id) {
-    return gImgs.find(img => (img.id === id)).url
+    return gImgs.find(img => img.id === id).url
 }
 
 function resetMeme() {
@@ -77,16 +75,16 @@ function deleteLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
 
     if (gMeme.selectedLineIdx === gMeme.lines.length) {
-        gMeme.selectedLineIdx = 0;
+        gMeme.selectedLineIdx = 0
     }
 }
 
 function switchLine() {
-    gMeme.selectedLineIdx++;
+    gMeme.selectedLineIdx++
     if (gMeme.selectedLineIdx >= gMeme.lines.length) {
-        gMeme.selectedLineIdx = 0;
+        gMeme.selectedLineIdx = 0
     }
-    console.log(gMeme.selectedLineIdx);
+    console.log(gMeme.selectedLineIdx)
 }
 
 function setFontFamily(font) {
@@ -98,17 +96,25 @@ function setFontSize(size) {
 }
 
 function findLineIdxCliked(clickedPos) {
-    console.log(clickedPos);
+    console.log(clickedPos)
     return gMeme.lines.findIndex(line => {
-        console.log(line.pos, line.dimentions);
+        console.log(line.pos, line.dimentions)
 
-        console.log(line.pos.x + line.dimentions.width / 2, line.pos.x - line.dimentions.width / 2,
-            line.pos.y + line.dimentions.height / 2, line.pos.y - line.dimentions.height / 2);
-        if ((clickedPos.x <= (line.pos.x + line.dimentions.width / 2)) && (clickedPos.x >= (line.pos.x - line.dimentions.width / 2)) &&
-            (clickedPos.y <= (line.pos.y + line.dimentions.height / 2)) && (clickedPos.y >= (line.pos.y - line.dimentions.height / 2))) {
-            return true;
+        console.log(
+            line.pos.x + line.dimentions.width / 2,
+            line.pos.x - line.dimentions.width / 2,
+            line.pos.y + line.dimentions.height / 2,
+            line.pos.y - line.dimentions.height / 2,
+        )
+        if (
+            clickedPos.x <= line.pos.x + line.dimentions.width / 2 &&
+            clickedPos.x >= line.pos.x - line.dimentions.width / 2 &&
+            clickedPos.y <= line.pos.y + line.dimentions.height / 2 &&
+            clickedPos.y >= line.pos.y - line.dimentions.height / 2
+        ) {
+            return true
         }
-        return false;
+        return false
     })
 }
 
@@ -144,7 +150,3 @@ function increaseFont() {
 function decreaseFont() {
     gMeme.lines[gMeme.selectedLineIdx].size -= 2
 }
-
-
-
-

@@ -15,9 +15,9 @@
 }
 
 .canvas {
-    aspect-ratio: 1/  1;
+    aspect-ratio: 1/ 1;
     width: min(100%, 100vh * 2 / 2);
-} 
+}
 
 @media (min-width: 860px) {
     .editor-container {
@@ -31,4 +31,3 @@
         width: 100%;
     }
 }
-

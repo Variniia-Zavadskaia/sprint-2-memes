@@ -1,4 +1,3 @@
-
 function onUploadImg() {
     const imgDataUrl = gElCanvas.toDataURL('image/jpeg')
 

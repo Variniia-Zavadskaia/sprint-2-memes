@@ -1,39 +1,39 @@
 @font-face {
     font-family: anton;
-    src: url("../../fonts/Anton/Anton-Regular.ttf");
+    src: url('../../fonts/Anton/Anton-Regular.ttf');
 }
 
 @font-face {
     font-family: cinzel;
-    src: url("../../fonts/Cinzel/Cinzel-Regular.ttf");
+    src: url('../../fonts/Cinzel/Cinzel-Regular.ttf');
 }
 
 @font-face {
     font-family: dancingscript;
-    src: url("../../fonts/Dancing_Script/DancingScript-Regular.ttf");
+    src: url('../../fonts/Dancing_Script/DancingScript-Regular.ttf');
 }
 
 @font-face {
     font-family: danfo;
-    src: url("../../fonts/Danfo/Danfo-Regular.ttf");
+    src: url('../../fonts/Danfo/Danfo-Regular.ttf');
 }
 
 @font-face {
     font-family: geostarfill;
-    src: url("../../fonts/Geostar_Fill/GeostarFill-Regular.ttf");
+    src: url('../../fonts/Geostar_Fill/GeostarFill-Regular.ttf');
 }
 
 @font-face {
     font-family: moolahlah;
-    src: url("../../fonts/Moo_Lah_Lah/MooLahLah-Regular.ttf");
+    src: url('../../fonts/Moo_Lah_Lah/MooLahLah-Regular.ttf');
 }
 
 @font-face {
     font-family: rubikpuddles;
-    src: url("../../fonts/Rubik_Puddles/RubikPuddles-Regular.ttf");
+    src: url('../../fonts/Rubik_Puddles/RubikPuddles-Regular.ttf');
 }
 
 @font-face {
     font-family: teko;
-    src: url("../../fonts/Teko/Teko-Regular.ttf");
+    src: url('../../fonts/Teko/Teko-Regular.ttf');
 }
